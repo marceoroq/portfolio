@@ -1,23 +1,31 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Marcelo Oroquieta - Portfolio</title>
+    <meta name="description" content="Marcelo Oroquieta - Portfolio" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Marcelo Oroquieta" />
+    <meta
+      name="keywords"
+      content="Marcelo Oroquieta, Portfolio, Web Developer, Frontend Developer, JavaScript, React, Next.js, TailwindCSS, Supabase, Fullstack Developer"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  @import "tailwindcss";
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
