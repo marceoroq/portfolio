@@ -1,0 +1,59 @@
+---
+import { Moon, FileDown, Languages } from "@lucide/astro";
+---
+
+<header id="header" class="fixed top-0 left-0 right-0 z-10">
+  <nav
+    class="flex items-center gap-4 font-mono pr-8 before:content-[''] before:border-b before:border-slate-300 before:w-full"
+  >
+    <ul class="flex justify-end items-center gap-10 py-8 pl-8">
+      <li>
+        <a
+          href="#projects"
+          class="hover:text-[#0070f3] hover:border-b-4 hover:border-[#0070f3] pb-2"
+          >Projects</a
+        >
+      </li>
+      <li>
+        <a
+          href="#experience"
+          class="hover:text-[#0070f3] hover:border-b-4 hover:border-[#0070f3] pb-2"
+          >Experience</a
+        >
+      </li>
+      <li>
+        <a
+          href="#testimonials"
+          class="hover:text-[#0070f3] hover:border-b-4 hover:border-[#0070f3] pb-2"
+          >Testimonials</a
+        >
+      </li>
+      <li>
+        <a
+          href="#contact"
+          class="hover:text-[#0070f3] hover:border-b-4 hover:border-[#0070f3] pb-2"
+          >Contact</a
+        >
+      </li>
+    </ul>
+    <span class="border-l h-6 border-slate-300"></span>
+    <ul class="flex justify-end items-center gap-4 py-4 text-slate-700">
+      <Moon class="hover:text-blue-500 cursor-pointer" />
+      <li>
+        <a
+          href="#spanish"
+          class="hover:text-blue-500 font-sans font-bold flex gap-1"
+        >
+          <Languages />
+          EN
+        </a>
+      </li>
+    </ul>
+    <button
+      class="bg-slate-700 text-white px-5 py-2.5 rounded-full flex gap-2 items-center shrink-0 hover:bg-blue-500 cursor-pointer active:transform active:scale-95"
+    >
+      <FileDown class="w-5 h-5" />
+      Download CV
+    </button>
+  </nav>
+</header>
