@@ -11,3 +11,29 @@ body {
   width: 100%;
   height: 100%;
 }
+
+@keyframes header-blur {
+  to {
+    background-color: rgb(255 255 255 / 0.7);
+    backdrop-filter: blur(12px);
+  }
+}
+
+@keyframes hide-line {
+  to {
+    border-color: transparent;
+    opacity: 0;
+  }
+}
+
+.header-scroll-effect {
+  animation: header-blur linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0 200px;
+}
+
+.hide-line-effect::before {
+  animation: hide-line linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0 200px;
+}

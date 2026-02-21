@@ -2,9 +2,12 @@
 import { Moon, FileDown, Languages } from "@lucide/astro";
 ---
 
-<header id="header" class="fixed top-0 left-0 right-0 z-10">
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-10 header-scroll-effect"
+>
   <nav
-    class="flex items-center gap-4 font-mono pr-8 before:content-[''] before:border-b before:border-slate-300 before:w-full"
+    class="flex items-center gap-4 font-mono w-full pr-8 before:content-[''] before:border-b before:border-slate-300 before:w-full hide-line-effect"
   >
     <ul class="flex justify-end items-center gap-10 py-8 pl-8">
       <li>
@@ -42,7 +45,7 @@ import { Moon, FileDown, Languages } from "@lucide/astro";
       <li>
         <a
           href="#spanish"
-          class="hover:text-blue-500 font-sans font-bold flex gap-1"
+          class="hover:text-blue-500 font-sans font-medium flex gap-1.5"
         >
           <Languages />
           EN
