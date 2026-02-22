@@ -1,3 +1,193 @@
-<footer id="footer">
-  <p>Marcelo Oroquieta - Portfolio</p>
+---
+import { Github, Linkedin, Mail, Calendar, MapPin, Heart } from "@lucide/astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  id="footer"
+  class="text-slate-900 py-12 px-4 sm:px-6 lg:px-8"
+  role="contentinfo"
+  aria-label="Site footer"
+>
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold font-mono">Marcelo Oroquieta</h2>
+        <p class="text-gray-700 font-mono text-sm">
+          Full Stack Developer passionate about creating innovative digital
+          solutions
+        </p>
+        <div class="flex items-center space-x-2 text-gray-400">
+          <MapPin size={16} aria-hidden="true" />
+          <span class="font-mono text-sm">Remote / Available for hire</span>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold font-mono">Quick Links</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="#hero"
+                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
+                aria-label="Go to hero section"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#experience"
+                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
+                aria-label="Go to experience section"
+              >
+                Experience
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
+                aria-label="Go to projects section"
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
+                aria-label="Go to contact section"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Contact & Social -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold font-mono">Get In Touch</h3>
+        <div class="space-y-3">
+          <a
+            href="mailto:oroquieta.m@gmail.com"
+            class="flex items-center space-x-2 text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm"
+            aria-label="Send email to Marcelo Oroquieta"
+          >
+            <Mail size={16} aria-hidden="true" />
+            <span>oroquieta.m@gmail.com</span>
+          </a>
+          <div class="flex items-center space-x-2 text-gray-400">
+            <Calendar size={16} aria-hidden="true" />
+            <span class="font-mono text-sm">Available for new projects</span>
+          </div>
+        </div>
+
+        <!-- Social links -->
+        <div class="flex space-x-4 pt-2">
+          <a
+            href="https://github.com/marceoroq"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors"
+            aria-label="Visit GitHub profile"
+          >
+            <Github size={20} aria-hidden="true" />
+          </a>
+          <a
+            href="https://linkedin.com/in/marcelo-oroquieta"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors"
+            aria-label="Visit LinkedIn profile"
+          >
+            <Linkedin size={20} aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-700 pt-8">
+      <!-- Bottom section -->
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
+      >
+        <!-- Copyright -->
+        <div
+          class="flex items-center space-x-2 text-gray-400 font-mono text-sm"
+        >
+          <span>© {currentYear} Marcelo Oroquieta. All rights reserved.</span>
+        </div>
+
+        <!-- Built with love -->
+        <div
+          class="flex items-center space-x-2 text-gray-400 font-mono text-sm"
+        >
+          <span>Built with</span>
+          <Heart
+            size={14}
+            class="text-red-500"
+            fill="currentColor"
+            aria-hidden="true"
+          />
+          <span>and</span>
+          <a
+            href="https://astro.build"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-purple-400 hover:text-purple-300 transition-colors"
+            aria-label="Visit Astro website"
+          >
+            Astro
+          </a>
+        </div>
+      </div>
+
+      <!-- Accessibility skip link -->
+      <div class="text-center mt-4">
+        <a
+          href="#hero"
+          class="text-gray-500 hover:text-gray-700 transition-colors font-mono text-xs"
+          aria-label="Back to top of page"
+        >
+          ↑ Back to top
+        </a>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<style>
+  /* Smooth scroll behavior for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus styles for better accessibility */
+  footer a:focus {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    footer {
+      border-top: 2px solid white;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
