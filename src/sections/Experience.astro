@@ -88,7 +88,7 @@ const freelanceExperiences: CompanyExperience = {
   company: "Freelance",
   roles: [
     {
-      title: "Frontend Engineer [for AutoFleet Solutions]",
+      title: "Frontend Engineer",
       period: "10.2025 — 01.2026",
       employment: "Contract",
       positionIcon: Code,
@@ -99,7 +99,7 @@ const freelanceExperiences: CompanyExperience = {
       skills: ["React", "TypeScript", "Tailwind CSS", "Supabase"],
     },
     {
-      title: "Web UI Specialist [for Creative Studio LLC]",
+      title: "Web UI Specialist",
       period: "08.2025 — 09.2025",
       employment: "Freelance",
       positionIcon: Braces,
@@ -110,7 +110,7 @@ const freelanceExperiences: CompanyExperience = {
       skills: ["Astro", "Tailwind CSS", "TypeScript", "Figma"],
     },
     {
-      title: "React Developer [for Nexus Retail]",
+      title: "React Developer",
       period: "05.2025 — 07.2025",
       employment: "Contract",
       positionIcon: FileBraces,
@@ -121,7 +121,7 @@ const freelanceExperiences: CompanyExperience = {
       skills: ["Next.js", "React", "Tailwind CSS", "JavaScript"],
     },
     {
-      title: "UI Developer [for MailTech Pro]",
+      title: "UI Developer",
       period: "02.2025 — 04.2025",
       employment: "Freelance",
       positionIcon: Code,
@@ -132,7 +132,7 @@ const freelanceExperiences: CompanyExperience = {
       skills: ["HTML", "CSS", "JavaScript", "React"],
     },
     {
-      title: "Frontend Web Developer [for TechFlow Agency]",
+      title: "Frontend Web Developer",
       period: "11.2024 — 01.2025",
       employment: "Contract",
       positionIcon: Braces,
@@ -175,6 +175,7 @@ const { experience = defaultExperience } = Astro.props as {
           experience.roles.map((role, index) => {
             const PositionIcon = role.positionIcon || Code;
             const isLast = index === experience.roles.length - 1;
+            const isFirst = index === 0;
 
             return (
               <li class="flex items-stretch gap-4">
@@ -192,7 +193,10 @@ const { experience = defaultExperience } = Astro.props as {
 
                 {/* --- MAIN CONTAINER --- */}
                 <div class="flex w-full flex-col gap-2">
-                  <div class="group w-full" data-state="closed">
+                  <div
+                    class="group w-full"
+                    data-state={isFirst ? "open" : "closed"}
+                  >
                     <button
                       type="button"
                       class="flex header-summary w-full cursor-pointer items-start gap-6 mt-1 text-left outline-none"
@@ -273,7 +277,7 @@ const { experience = defaultExperience } = Astro.props as {
         {
           freelanceExperiences.roles.map((role, index) => {
             const PositionIcon = role.positionIcon || Code;
-            const isLast = index === freelanceExperiences.roles.length - 1;
+            const isFirst = index === 0;
 
             return (
               <li class="flex items-stretch gap-4">
@@ -281,17 +285,14 @@ const { experience = defaultExperience } = Astro.props as {
                   <div class="grid size-9 place-items-center rounded-sm border-2 border-slate-200 bg-white text-slate-700">
                     <PositionIcon class="size-4 text-slate-400 stroke-3" />
                   </div>
-                  <div
-                    class:list={[
-                      "w-px flex-1 bg-slate-200",
-                      isLast && "opacity-0",
-                    ]}
-                  />
                 </div>
 
                 {/* --- MAIN CONTAINER --- */}
                 <div class="flex w-full flex-col gap-2">
-                  <div class="group w-full" data-state="closed">
+                  <div
+                    class="group w-full"
+                    data-state={isFirst ? "open" : "closed"}
+                  >
                     <button
                       type="button"
                       class="flex header-summary w-full cursor-pointer items-start gap-6 mt-1 text-left outline-none"
@@ -314,7 +315,7 @@ const { experience = defaultExperience } = Astro.props as {
 
                         <div class="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out group-data-[state=open]:grid-rows-[0fr]">
                           <div class="overflow-hidden mask-[linear-gradient(to_bottom,transparent,#000_10px,#000_calc(100%-15px),transparent)]">
-                            <div class="mt-2 flex flex-wrap gap-2 pb-4 transition-transform duration-400 ease-out group-data-[state=open]:-translate-y-8 sm:flex">
+                            <div class="mt-2 flex flex-wrap gap-2 pb-6 transition-transform duration-400 ease-out group-data-[state=open]:-translate-y-8 sm:flex">
                               {role.skills.map((skill) => (
                                 <span class="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] tracking-wide text-slate-600">
                                   {skill.toUpperCase()}
