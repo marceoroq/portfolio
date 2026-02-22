@@ -1,5 +1,46 @@
-<section id="testimonials" class="w-full flex justify-center bg-white py-18">
-  <div class="w-full flex flex-col items-center max-w-5xl px-4 gap-16">
-    <h2 class="text-5xl font-bold text-slate-600">Testimonials</h2>
+---
+import type { Testimonial } from "../types/index.tsx";
+import TestimonialCarousel from "../components/TestimonialsCarousel.tsx";
+
+const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Marcelo was instrumental in scaling our frontend architecture. His ability to translate complex design requirements into clean, reusable code is unmatched. A true asset to any engineering team.",
+    name: "Sarah Jenkins",
+    title: "CTO",
+    company: "Fintech Global",
+    avatarSrc: "https://i.pravatar.cc/160?img=32",
+    companyMarkText: "G",
+  },
+  {
+    quote:
+      "He consistently delivers high-quality features with a strong attention to detail. Communication is clear, deadlines are met, and the final result always exceeds expectations.",
+    name: "Diego Martínez",
+    title: "Engineering Manager",
+    company: "Studio Norte",
+    avatarSrc: "https://i.pravatar.cc/160?img=12",
+    companyMarkText: "N",
+  },
+  {
+    quote:
+      "Marcelo elevates the whole team. He anticipates edge cases, keeps the codebase maintainable, and makes collaboration feel effortless.",
+    name: "Alicia Park",
+    title: "Product Lead",
+    company: "Cloudlane",
+    avatarSrc: "https://i.pravatar.cc/160?img=47",
+    companyMarkText: "C",
+  },
+];
+---
+
+<section
+  id="testimonials"
+  class="w-full flex justify-center bg-white py-18 scroll-mt-24"
+>
+  <div class="w-full flex flex-col items-center max-w-5xl px-4 gap-12">
+    <h2 class="text-5xl font-bold text-slate-900 tracking-tight">
+      What People Say
+    </h2>
+    <TestimonialCarousel testimonials={testimonials} client:visible />
   </div>
 </section>
