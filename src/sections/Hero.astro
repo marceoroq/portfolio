@@ -1,6 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import { Github, Linkedin, Send } from "@lucide/astro";
+import { Github, Linkedin, Send, Bot } from "@lucide/astro";
+
+const position = "Frontend Web Developer";
+const name = "Marcelo Oroquieta";
+const description =
+  "Building sleek, high-performing web apps with React and Next.js. Expanding my skill set into fullstack architecture and eagerly exploring the AI space";
 ---
 
 <section id="hero" class="min-h-screen flex flex-col pl-8">
@@ -10,14 +15,15 @@ import { Github, Linkedin, Send } from "@lucide/astro";
     <div class="flex w-full justify-center items-center font-mono gap-24">
       <div class="flex flex-col max-w-lg gap-3">
         <div class="flex flex-col gap-1">
-          <h2 class="text-gray-400 text-xl">Fullstack Web Developer</h2>
+          <h2 class="text-gray-400 text-xl">{position}</h2>
           <h1 class="font-sans text-5xl font-semibold sm:whitespace-nowrap">
-            Marcelo Oroquieta
+            {name}
           </h1>
           <p class="text-slate-500 leading-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua magna
-            aliqua magna aliqua.
+            Building sleek, high-performing web apps with React and Next.js.
+            Expanding my skill set into fullstack architecture and eagerly
+            exploring the AI space
+            <Bot class="w-4.5 h-4.5 inline mb-1" />.
           </p>
         </div>
 
@@ -33,12 +39,14 @@ import { Github, Linkedin, Send } from "@lucide/astro";
             </div>
             Available for Work
           </div>
-          <button
-            class="bg-slate-700 text-white px-4 py-2 rounded-full flex gap-2 items-center shrink-0 hover:bg-blue-500 cursor-pointer active:transform active:scale-95"
-          >
-            <Send class="w-4.5 h-4.5" />
-            Contact Me
-          </button>
+          <a href="mailto:oroquieta.m@gmail.com" target="_blank">
+            <button
+              class="bg-slate-700 text-white px-4 py-2 rounded-full flex gap-2 items-center shrink-0 hover:bg-blue-500 cursor-pointer active:transform active:scale-95"
+            >
+              <Send class="w-4.5 h-4.5" />
+              Contact Me
+            </button>
+          </a>
         </div>
       </div>
       <div>
