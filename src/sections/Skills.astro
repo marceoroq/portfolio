@@ -1,5 +1,90 @@
-<section id="skills" class="w-full flex justify-center bg-slate-200 py-18">
+---
+import {
+  siAstro,
+  siCss,
+  siFigma,
+  siGit,
+  siHtml5,
+  siJavascript,
+  siMongodb,
+  siNextdotjs,
+  siNodedotjs,
+  siPostgresql,
+  siReact,
+  siStorybook,
+  siSupabase,
+  siTailwindcss,
+  siTypescript,
+  siZod,
+  siThreedotjs,
+  siFirebase,
+  siPrisma,
+  siShadcnui,
+  siVercel,
+  siResend,
+} from "simple-icons";
+import type { SimpleIcon } from "simple-icons";
+
+type Skill = {
+  name: string;
+  icon: SimpleIcon;
+};
+
+const skills: Skill[] = [
+  { name: "JavaScript", icon: siJavascript },
+  { name: "TypeScript", icon: siTypescript },
+  { name: "Next.js", icon: siNextdotjs },
+  { name: "React", icon: siReact },
+  { name: "Astro", icon: siAstro },
+  { name: "Node.js", icon: siNodedotjs },
+  { name: "PostgreSQL", icon: siPostgresql },
+  { name: "MongoDB", icon: siMongodb },
+  { name: "Supabase", icon: siSupabase },
+  { name: "Firebase", icon: siFirebase },
+  { name: "Prisma", icon: siPrisma },
+  { name: "Tailwind CSS", icon: siTailwindcss },
+  { name: "Shadcn UI", icon: siShadcnui },
+  { name: "Figma", icon: siFigma },
+  { name: "Storybook", icon: siStorybook },
+  { name: "Git", icon: siGit },
+  { name: "HTML5", icon: siHtml5 },
+  { name: "CSS3", icon: siCss },
+  { name: "Zod", icon: siZod },
+  { name: "Three.js", icon: siThreedotjs },
+  { name: "Vercel", icon: siVercel },
+  { name: "Resend", icon: siResend },
+];
+---
+
+<section
+  id="skills"
+  class="w-full flex justify-center bg-slate-200 py-18 scroll-mt-24"
+>
   <div class="w-full flex flex-col items-center max-w-5xl px-4 gap-16">
     <h2 class="text-5xl font-bold text-slate-600">Skills</h2>
+
+    <ul
+      class="w-full grid grid-cols-4 gap-x-6 gap-y-8 sm:grid-cols-6 md:grid-cols-8"
+    >
+      {
+        skills.map(({ name, icon }) => (
+          <li
+            tabindex="0"
+            class="group flex flex-col items-center gap-2 rounded-xl px-2 py-3 transition-colors hover:bg-white/60 hover:scale-110 focus-visible:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
+            style={`--skill-color: #${icon.hex};`}
+            aria-label={name}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="size-12 transition-all duration-200 text-(--skill-color)"
+            >
+              <path fill="currentColor" d={icon.path} />
+            </svg>
+            <p class="text-xs font-mono text-slate-500">{name}</p>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>
