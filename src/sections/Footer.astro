@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Mail, Calendar, MapPin, Heart } from "@lucide/astro";
+import { Github, Linkedin, Mail, Calendar, MapPin } from "@lucide/astro";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -112,7 +112,7 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- Divider -->
-    <div class="border-t border-gray-700 pt-8">
+    <div class="border-t border-gray-200 pt-8">
       <!-- Bottom section -->
       <div
         class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
@@ -128,14 +128,7 @@ const currentYear = new Date().getFullYear();
         <div
           class="flex items-center space-x-2 text-gray-400 font-mono text-sm"
         >
-          <span>Designed and coded with</span>
-          <Heart
-            size={14}
-            class="text-red-500"
-            fill="currentColor"
-            aria-hidden="true"
-          />
-          <span>by Marcelo Oroquieta</span>
+          Designed and coded with ☕️ by Marcelo Oroquieta
         </div>
       </div>
     </div>
