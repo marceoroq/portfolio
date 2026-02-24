@@ -1,3 +1,104 @@
-<section id="contact">
-  <h2>Contact</h2>
+---
+import { Copy, Github, Linkedin, Mail } from "@lucide/astro";
+
+const email = "oroquieta.m@gmail.com";
+---
+
+<section id="contact" class="w-full flex justify-center bg-slate-200 py-18">
+  <div
+    class="w-full flex flex-col items-center max-w-5xl px-4 gap-10 font-mono"
+  >
+    <div class="px-3 py-1 rounded-full bg-slate-300/60 text-slate-600 text-sm">
+      Get in touch
+    </div>
+
+    <p class="text-slate-500 text-center text-lg leading-7 max-w-2xl">
+      What’s next? Feel free to reach out to me if you are looking for a
+      developer, have a query, or simply want to connect.
+    </p>
+
+    <div class="flex items-center gap-4 text-slate-800">
+      <Mail class="w-7 h-7 text-slate-500" aria-hidden="true" />
+
+      <a
+        href={`mailto:${email}`}
+        class="text-2xl sm:text-3xl font-bold hover:underline underline-offset-6 decoration-slate-400"
+        aria-label={`Send email to ${email}`}
+      >
+        {email}
+      </a>
+
+      <div class="relative">
+        <button
+          type="button"
+          class="p-2 rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-300/70 transition active:scale-95 cursor-pointer"
+          aria-label="Copy email address"
+          data-copy-email
+        >
+          <Copy class="w-5 h-5" aria-hidden="true" />
+        </button>
+        <div
+          class="absolute left-1/2 -translate-x-1/2 -top-9 px-2 py-1 rounded-md bg-slate-800 text-white text-xs opacity-0 pointer-events-none translate-y-1 transition"
+          role="status"
+          aria-live="polite"
+          data-copy-tooltip
+        >
+          Copied!
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center gap-3 pt-4">
+      <p class="text-slate-500 text-sm">
+        You may also find me on these platforms!
+      </p>
+      <div class="flex items-center gap-5 text-slate-500">
+        <a
+          href="https://github.com/marceoroq"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-blue-500 transition-colors"
+          aria-label="Visit GitHub profile"
+        >
+          <Github class="w-5 h-5" aria-hidden="true" />
+        </a>
+        <a
+          href="https://linkedin.com/in/marcelo-oroquieta"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-blue-500 transition-colors"
+          aria-label="Visit LinkedIn profile"
+        >
+          <Linkedin class="w-5 h-5" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
+
+<script is:inline>
+  const email = "oroquieta.m@gmail.com";
+  const copyButton = document.querySelector("[data-copy-email]");
+  const tooltip = document.querySelector("[data-copy-tooltip]");
+
+  copyButton.addEventListener("click", () => {
+    navigator.clipboard.writeText(email);
+
+    tooltip.classList.remove(
+      "opacity-0",
+      "pointer-events-none",
+      "translate-y-1",
+    );
+
+    tooltip.classList.add("opacity-100", "translate-y-0");
+
+    window.setTimeout(() => {
+      tooltip.classList.remove("opacity-100", "translate-y-0");
+      tooltip.classList.add(
+        "opacity-0",
+        "pointer-events-none",
+        "translate-y-1",
+      );
+    }, 1400);
+  });
+</script>
