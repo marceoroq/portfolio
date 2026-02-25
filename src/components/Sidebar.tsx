@@ -3,7 +3,7 @@ import { useState } from "preact/hooks";
 import { navItems } from "../lib/constants";
 
 export const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
