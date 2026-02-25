@@ -1,29 +1,13 @@
 ---
-import { Image } from "astro:assets";
-import {
-  Code,
-  Braces,
-  FileBraces,
-  ChevronDown,
-  type Icon as IconType,
-} from "@lucide/astro";
+import { Code, Braces, FileBraces } from "@lucide/astro";
 
-type ExperienceRole = {
-  title: string;
-  period: string;
-  employment?: string;
-  positionIcon?: typeof IconType;
-  bullets: string[];
-  skills: string[];
-};
+import ExperienceAccordion from "src/components/ExperienceAccordion.astro";
 
-type CompanyExperience = {
-  company: string;
-  roles: ExperienceRole[];
-};
+import type { CompanyExperience } from "src/types";
 
-const defaultExperience: CompanyExperience = {
+const globantExperience: CompanyExperience = {
   company: "Globant",
+  companyLogo: "/images/globant-logo.png",
   roles: [
     {
       title: "Senior Web UI Developer",
@@ -82,6 +66,7 @@ const defaultExperience: CompanyExperience = {
 
 const freelanceExperiences: CompanyExperience = {
   company: "Freelance",
+  companyLogo: "/images/upwork-logo.png",
   roles: [
     {
       title: "Frontend Engineer",
@@ -140,234 +125,15 @@ const freelanceExperiences: CompanyExperience = {
     },
   ],
 };
-
-const { experience = defaultExperience } = Astro.props as {
-  experience?: CompanyExperience;
-  freelanceExperiences?: CompanyExperience;
-};
 ---
 
 <section id="experience" class="w-full flex justify-center py-18">
-  <div class="w-full flex flex-col items-center max-w-5xl px-4 gap-16">
+  <div
+    class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-16"
+  >
     <h2 class="text-5xl font-bold text-slate-600">Experience</h2>
 
-    <div class="flex flex-col gap-6 w-full font-mono">
-      <div class="flex items-center gap-3">
-        <Image
-          src="/images/globant-logo.png"
-          alt="Globant logo"
-          class="rounded-full w-9 h-9"
-          width={50}
-          height={50}
-        />
-
-        <h3 class="text-2xl font-semibold text-slate-900">
-          {experience.company}
-        </h3>
-      </div>
-
-      <ol class="pl-8">
-        {
-          experience.roles.map((role, index) => {
-            const PositionIcon = role.positionIcon || Code;
-            const isLast = index === experience.roles.length - 1;
-            const isFirst = index === 0;
-
-            return (
-              <li class="flex items-stretch gap-4">
-                <div class="flex w-10 flex-col items-center">
-                  <div class="grid size-9 place-items-center rounded-sm border-2 border-slate-200 bg-white text-slate-700">
-                    <PositionIcon class="size-4 text-slate-400 stroke-3" />
-                  </div>
-                  <div
-                    class:list={[
-                      "w-px flex-1 bg-slate-200",
-                      isLast && "opacity-0",
-                    ]}
-                  />
-                </div>
-
-                {/* --- MAIN CONTAINER --- */}
-                <div class="flex w-full flex-col gap-2">
-                  <div
-                    class="group w-full"
-                    data-state={isFirst ? "open" : "closed"}
-                  >
-                    <button
-                      type="button"
-                      class="flex header-summary w-full cursor-pointer items-start gap-6 mt-1 text-left outline-none"
-                    >
-                      <div class="min-w-0 flex-1">
-                        <div class="flex justify-between items-center">
-                          <div class="flex gap-2 items-center">
-                            <p class="truncate text-xl font-semibold text-slate-500 transition-colors duration-300 group-data-[state=open]:text-black">
-                              {role.title}
-                            </p>
-                            <p class="text-xs text-slate-400">
-                              {role.employment ? `${role.employment} · ` : ""}
-                              {role.period}
-                            </p>
-                          </div>
-                          <div class="mt-1 shrink-0 text-slate-400 transition-transform duration-500 group-data-[state=open]:-scale-100">
-                            <ChevronDown class="size-5" />
-                          </div>
-                        </div>
-
-                        <div class="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out group-data-[state=open]:grid-rows-[0fr]">
-                          <div class="overflow-hidden mask-[linear-gradient(to_bottom,transparent,#000_10px,#000_calc(100%-15px),transparent)]">
-                            <div class="mt-2 flex flex-wrap gap-2 pb-4 transition-transform duration-400 ease-out group-data-[state=open]:-translate-y-8 sm:flex">
-                              {role.skills.map((skill) => (
-                                <span class="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] tracking-wide text-slate-600">
-                                  {skill.toUpperCase()}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </button>
-
-                    <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-data-[state=open]:grid-rows-[1fr]">
-                      <div class="overflow-hidden mask-[linear-gradient(to_bottom,#000_calc(100%-20px),transparent)]">
-                        <div class="mt-2 flex flex-col gap-4 pb-4 -translate-y-4 opacity-0 transition-all duration-500 ease-in-out group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100 md:flex-row md:items-start md:justify-between md:gap-8">
-                          <ul class="flex-5 space-y-2 text-slate-700">
-                            {role.bullets.map((bullet) => (
-                              <li class="flex gap-3 font-light">
-                                <span class="mt-[7px] size-1.5 shrink-0 rounded-full bg-lime-400" />
-                                <p>{bullet}</p>
-                              </li>
-                            ))}
-                          </ul>
-
-                          <div class="flex flex-3 flex-wrap gap-2 md:max-w-[45%] md:justify-end">
-                            {role.skills.map((skill) => (
-                              <span class="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] tracking-wide text-slate-600">
-                                {skill.toUpperCase()}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            );
-          })
-        }
-      </ol>
-    </div>
-    <div class="flex flex-col gap-6 w-full font-mono">
-      <div class="flex items-center gap-3">
-        <Image
-          src="/images/upwork-logo.png"
-          alt="Upwork logo"
-          class="rounded-full w-9 h-9 object-cover"
-          width={50}
-          height={50}
-        />
-
-        <h3 class="text-2xl font-semibold text-slate-900">Freelance</h3>
-      </div>
-      <ol class="pl-8">
-        {
-          freelanceExperiences.roles.map((role, index) => {
-            const PositionIcon = role.positionIcon || Code;
-            const isFirst = index === 0;
-
-            return (
-              <li class="flex items-stretch gap-4">
-                <div class="flex w-10 flex-col items-center">
-                  <div class="grid size-9 place-items-center rounded-sm border-2 border-slate-200 bg-white text-slate-700">
-                    <PositionIcon class="size-4 text-slate-400 stroke-3" />
-                  </div>
-                </div>
-
-                {/* --- MAIN CONTAINER --- */}
-                <div class="flex w-full flex-col gap-2">
-                  <div
-                    class="group w-full"
-                    data-state={isFirst ? "open" : "closed"}
-                  >
-                    <button
-                      type="button"
-                      class="flex header-summary w-full cursor-pointer items-start gap-6 mt-1 text-left outline-none"
-                    >
-                      <div class="min-w-0 flex-1">
-                        <div class="flex justify-between items-center">
-                          <div class="flex gap-2 items-center">
-                            <p class="truncate text-xl font-semibold text-slate-500 transition-colors duration-300 group-data-[state=open]:text-black">
-                              {role.title}
-                            </p>
-                            <p class="text-xs text-slate-400">
-                              {role.employment ? `${role.employment} · ` : ""}
-                              {role.period}
-                            </p>
-                          </div>
-                          <div class="mt-1 shrink-0 text-slate-400 transition-transform duration-500 group-data-[state=open]:-scale-100">
-                            <ChevronDown class="size-5" />
-                          </div>
-                        </div>
-
-                        <div class="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out group-data-[state=open]:grid-rows-[0fr]">
-                          <div class="overflow-hidden mask-[linear-gradient(to_bottom,transparent,#000_10px,#000_calc(100%-15px),transparent)]">
-                            <div class="mt-2 flex flex-wrap gap-2 pb-6 transition-transform duration-400 ease-out group-data-[state=open]:-translate-y-8 sm:flex">
-                              {role.skills.map((skill) => (
-                                <span class="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] tracking-wide text-slate-600">
-                                  {skill.toUpperCase()}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </button>
-
-                    <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-data-[state=open]:grid-rows-[1fr]">
-                      <div class="overflow-hidden mask-[linear-gradient(to_bottom,#000_calc(100%-20px),transparent)]">
-                        <div class="mt-2 flex flex-col gap-4 pb-4 -translate-y-4 opacity-0 transition-all duration-500 ease-in-out group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100 md:flex-row md:items-start md:justify-between md:gap-8">
-                          <ul class="flex-5 space-y-2 text-slate-700">
-                            {role.bullets.map((bullet) => (
-                              <li class="flex gap-3 font-light">
-                                <span class="mt-[7px] size-1.5 shrink-0 rounded-full bg-lime-400" />
-                                <p>{bullet}</p>
-                              </li>
-                            ))}
-                          </ul>
-
-                          <div class="flex flex-3 flex-wrap gap-2 md:max-w-[45%] md:justify-end">
-                            {role.skills.map((skill) => (
-                              <span class="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] tracking-wide text-slate-600">
-                                {skill.toUpperCase()}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            );
-          })
-        }
-      </ol>
-    </div>
+    <ExperienceAccordion experience={globantExperience} client:visible />
+    <ExperienceAccordion experience={freelanceExperiences} client:visible />
   </div>
 </section>
-
-<script>
-  const buttons = document.querySelectorAll("button.header-summary");
-
-  // Handle clicks on each button.
-  buttons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const target = e.currentTarget as HTMLElement;
-      const el = target.closest(".group") as HTMLElement | null;
-
-      if (!el) return;
-
-      el.dataset.state = el.dataset.state === "closed" ? "open" : "closed";
-    });
-  });
-</script>
