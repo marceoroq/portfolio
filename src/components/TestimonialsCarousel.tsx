@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
-
-import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState, useRef } from "preact/hooks";
+import EmblaCarousel, { type EmblaCarouselType } from "embla-carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+
+import { Quote, ChevronLeft, ChevronRight } from "lucide-preact";
 import type { Testimonial } from "../types";
 
 interface CarouselProps {
@@ -10,11 +10,24 @@ interface CarouselProps {
 }
 
 export default function TestimonialCarousel({ testimonials }: CarouselProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: true }),
-  ]);
-
+  // 1. Creamos la referencia para el contenedor del DOM y el estado para la API de Embla
+  const emblaNodeRef = useRef<HTMLDivElement>(null);
+  const [emblaApi, setEmblaApi] = useState<EmblaCarouselType | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  // 2. Inicializamos Embla en el montaje del componente
+  useEffect(() => {
+    if (!emblaNodeRef.current) return;
+
+    const api = EmblaCarousel(emblaNodeRef.current, { loop: true }, [
+      Autoplay({ delay: 5000, stopOnInteraction: true }),
+    ]);
+
+    setEmblaApi(api);
+
+    // Limpieza vital al desmontar el componente
+    return () => api.destroy();
+  }, []);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -40,7 +53,7 @@ export default function TestimonialCarousel({ testimonials }: CarouselProps) {
     <div className="w-full max-w-4xl relative">
       <div
         className="overflow-hidden rounded-2xl cursor-grab active:cursor-grabbing"
-        ref={emblaRef}
+        ref={emblaNodeRef} // <- Asignamos nuestra referencia nativa
       >
         <div className="flex">
           {testimonials.map((t, i) => (
