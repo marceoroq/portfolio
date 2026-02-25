@@ -5,7 +5,7 @@ import { CONTACT_EMAIL } from "astro:env/server";
 
 <section id="contact" class="w-full flex justify-center bg-slate-200 py-18">
   <div
-    class="w-full flex flex-col items-center max-w-5xl px-4 gap-10 font-mono"
+    class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-10 font-mono"
   >
     <div class="px-3 py-1 rounded-full bg-slate-300/60 text-slate-600 text-sm">
       Get in touch
@@ -16,12 +16,12 @@ import { CONTACT_EMAIL } from "astro:env/server";
       developer, have a query, or simply want to connect.
     </p>
 
-    <div class="flex items-center gap-4 text-slate-800">
-      <Mail class="w-7 h-7 text-slate-500" aria-hidden="true" />
+    <div class="flex items-center gap-2 md:gap-4 text-slate-800">
+      <Mail class="w-5 h-5 md:w-7 md:h-7 text-slate-500" aria-hidden="true" />
 
       <a
         href={`mailto:${CONTACT_EMAIL}`}
-        class="text-2xl sm:text-3xl font-bold hover:underline underline-offset-6 decoration-slate-400"
+        class="text-lg sm:text-xl md:text-3xl font-bold hover:underline underline-offset-6 decoration-slate-400"
         aria-label={`Send email to ${CONTACT_EMAIL}`}
         data-contact-email
       >

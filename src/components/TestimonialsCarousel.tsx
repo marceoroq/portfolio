@@ -50,7 +50,7 @@ export default function TestimonialCarousel({ testimonials }: CarouselProps) {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="w-full max-w-4xl relative">
+    <div className="w-full max-w-3xl relative">
       <div
         className="overflow-hidden rounded-2xl cursor-grab active:cursor-grabbing"
         ref={emblaNodeRef} // <- Asignamos nuestra referencia nativa
@@ -105,7 +105,7 @@ export default function TestimonialCarousel({ testimonials }: CarouselProps) {
         onClick={scrollPrev}
         type="button"
         aria-label="Testimonio anterior"
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-6 p-3 rounded-full bg-white/90 text-slate-500 shadow-sm ring-1 ring-slate-200 hover:text-slate-700 hover:ring-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 z-10"
+        className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 lg:-translate-x-6 p-3 rounded-full bg-white/90 text-slate-500 shadow-sm ring-1 ring-slate-200 hover:text-slate-700 hover:ring-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 z-10"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
@@ -114,7 +114,7 @@ export default function TestimonialCarousel({ testimonials }: CarouselProps) {
         onClick={scrollNext}
         type="button"
         aria-label="Testimonio siguiente"
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-6 p-3 rounded-full bg-white/90 text-slate-500 shadow-sm ring-1 ring-slate-200 hover:text-slate-700 hover:ring-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 z-10"
+        className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 lg:translate-x-6 p-3 rounded-full bg-white/90 text-slate-500 shadow-sm ring-1 ring-slate-200 hover:text-slate-700 hover:ring-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 z-10"
       >
         <ChevronRight className="w-6 h-6" />
       </button>

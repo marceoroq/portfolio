@@ -34,8 +34,10 @@ const testimonials: Testimonial[] = [
 ---
 
 <section id="testimonials" class="w-full flex justify-center bg-white py-18">
-  <div class="w-full flex flex-col items-center max-w-5xl px-4 gap-12">
-    <h2 class="text-5xl font-bold text-slate-900 tracking-tight">
+  <div
+    class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-12"
+  >
+    <h2 class="text-5xl font-bold text-slate-900 tracking-tight text-center">
       What People Say
     </h2>
     <TestimonialCarousel testimonials={testimonials} client:visible />
