@@ -1,5 +1,6 @@
 ---
 import { Github, Linkedin, Mail, Calendar, MapPin } from "@lucide/astro";
+import { CONTACT_EMAIL } from "astro:env/server";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -74,12 +75,12 @@ const currentYear = new Date().getFullYear();
         <h3 class="text-lg font-semibold font-mono">Get In Touch</h3>
         <div class="space-y-3">
           <a
-            href="mailto:oroquieta.m@gmail.com"
+            href={`mailto:${CONTACT_EMAIL}`}
             class="flex items-center space-x-2 text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm"
             aria-label="Send email to Marcelo Oroquieta"
           >
             <Mail size={16} aria-hidden="true" />
-            <span>oroquieta.m@gmail.com</span>
+            <span>{CONTACT_EMAIL}</span>
           </a>
           <div class="flex items-center space-x-2 text-gray-400">
             <Calendar size={16} aria-hidden="true" />
