@@ -1,8 +1,6 @@
 ---
 import { Copy, Github, Linkedin, Mail } from "@lucide/astro";
 import { CONTACT_EMAIL } from "astro:env/server";
-
-const email = CONTACT_EMAIL;
 ---
 
 <section id="contact" class="w-full flex justify-center bg-slate-200 py-18">
@@ -22,11 +20,12 @@ const email = CONTACT_EMAIL;
       <Mail class="w-7 h-7 text-slate-500" aria-hidden="true" />
 
       <a
-        href={`mailto:${email}`}
+        href={`mailto:${CONTACT_EMAIL}`}
         class="text-2xl sm:text-3xl font-bold hover:underline underline-offset-6 decoration-slate-400"
-        aria-label={`Send email to ${email}`}
+        aria-label={`Send email to ${CONTACT_EMAIL}`}
+        data-contact-email
       >
-        {email}
+        {CONTACT_EMAIL}
       </a>
 
       <div class="relative">
@@ -78,9 +77,11 @@ const email = CONTACT_EMAIL;
 </section>
 
 <script is:inline>
-  const email = CONTACT_EMAIL;
   const copyButton = document.querySelector("[data-copy-email]");
   const tooltip = document.querySelector("[data-copy-tooltip]");
+
+  const contactEmail = document.querySelector("[data-contact-email]");
+  const email = contactEmail.textContent;
 
   copyButton.addEventListener("click", () => {
     navigator.clipboard.writeText(email);
