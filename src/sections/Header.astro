@@ -1,46 +1,36 @@
 ---
 import { Moon, FileDown, Languages } from "@lucide/astro";
+import { Sidebar } from "src/components/Sidebar";
+import { navItems } from "../lib/constants";
 ---
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-10 header-scroll-effect"
+  class="fixed top-0 left-0 right-0 z-20 header-scroll-effect"
 >
   <nav
-    class="flex items-center gap-4 font-mono w-full pr-8 before:content-[''] before:border-b before:border-slate-300 before:w-full hide-line-effect"
+    class="flex py-2 md:py-4 px-4 justify-between items-center gap-4 font-mono w-full md:pr-8 md:before:content-[''] md:before:border-b md:before:border-slate-300 md:before:w-full hide-line-effect"
   >
-    <ul class="flex justify-end items-center gap-10 py-4 md:py-8 pl-8">
-      <li>
-        <a
-          href="#projects"
-          class="hover:text-[#0070f3] hover:border-b-4 hover:border-[#0070f3] pb-2"
-          >Projects</a
-        >
-      </li>
-      <li>
-        <a
-          href="#experience"
-          class="hover:text-[#0070f3] hover:border-b-4 hover:border-[#0070f3] pb-2"
-          >Experience</a
-        >
-      </li>
-      <li>
-        <a
-          href="#testimonials"
-          class="hover:text-[#0070f3] hover:border-b-4 hover:border-[#0070f3] pb-2"
-          >Testimonials</a
-        >
-      </li>
-      <li>
-        <a
-          href="#contact"
-          class="hover:text-[#0070f3] hover:border-b-4 hover:border-[#0070f3] pb-2"
-          >Contact</a
-        >
-      </li>
+    <ul class="hidden md:flex justify-end items-center gap-6 lg:gap-10 lg:pl-8">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={`#${item.id}`}
+              class="hover:text-blue-500 hover:border-b-4 hover:border-blue-500 pb-2"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
-    <span class="border-l h-6 border-slate-300"></span>
-    <ul class="flex justify-end items-center gap-4 py-4 text-slate-700">
+
+    <span class="hidden md:block border-l h-6 border-slate-300"></span>
+
+    <ul
+      class="hidden md:flex justify-end items-center gap-4 py-4 text-slate-700"
+    >
       <Moon class="hover:text-blue-500 cursor-pointer" />
       <li>
         <a
@@ -52,11 +42,14 @@ import { Moon, FileDown, Languages } from "@lucide/astro";
         </a>
       </li>
     </ul>
+
     <button
       class="bg-slate-700 text-white px-5 py-2.5 rounded-full flex gap-2 items-center shrink-0 hover:bg-blue-500 cursor-pointer active:transform active:scale-95"
     >
       <FileDown class="w-5 h-5" />
       Download CV
     </button>
+
+    <Sidebar client:visible />
   </nav>
 </header>
