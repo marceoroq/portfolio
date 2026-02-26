@@ -1,8 +1,5 @@
 ---
-import { Github, Linkedin, Mail, Calendar, MapPin } from "@lucide/astro";
-import { CONTACT_EMAIL } from "astro:env/server";
-
-const currentYear = new Date().getFullYear();
+import { MapPin } from "@lucide/astro";
 ---
 
 <footer
@@ -12,31 +9,43 @@ const currentYear = new Date().getFullYear();
   aria-label="Site footer"
 >
   <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-      <div class="space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-bold font-mono">Marcelo Oroquieta</h2>
         <p class="text-gray-700 font-mono text-sm">
-          Full Stack Developer passionate about creating innovative digital
+          Frontend Developer passionate about creating innovative digital
           solutions
         </p>
-        <div class="flex items-center space-x-2 text-gray-400">
+        <div class="flex items-center gap-2 text-gray-400">
           <MapPin size={16} aria-hidden="true" />
-          <span class="font-mono text-sm">Remote / Available for hire</span>
+          <span class="font-mono text-sm">Remote | Mendoza, Argentina</span>
+        </div>
+        <div
+          class="flex items-center gap-2 text-emerald-500 font-mono text-sm pl-[3px]"
+        >
+          <div class="relative w-2.5 h-2.5">
+            <span
+              class="absolute w-2.5 h-2.5 rounded-full bg-emerald-400 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"
+              shadow-[0_0_10px_#5EEA6F]></span>
+            <span class="relative flex h-2.5 w-2.5 rounded-full bg-emerald-500"
+            ></span>
+          </div>
+          Available for Work
         </div>
       </div>
 
       <!-- Quick links -->
-      <div class="space-y-4">
+      <div class="flex flex-col md:items-end gap-4">
         <h3 class="text-lg font-semibold font-mono">Quick Links</h3>
         <nav aria-label="Footer navigation">
-          <ul class="space-y-2">
+          <ul class="flex flex-col md:items-end gap-2">
             <li>
               <a
                 href="#hero"
                 class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
                 aria-label="Go to hero section"
               >
-                Home
+                Go to top
               </a>
             </li>
             <li>
@@ -69,68 +78,14 @@ const currentYear = new Date().getFullYear();
           </ul>
         </nav>
       </div>
-
-      <!-- Contact & Social -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-semibold font-mono">Get In Touch</h3>
-        <div class="space-y-3">
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            class="flex items-center space-x-2 text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm"
-            aria-label="Send email to Marcelo Oroquieta"
-          >
-            <Mail size={16} aria-hidden="true" />
-            <span>{CONTACT_EMAIL}</span>
-          </a>
-          <div class="flex items-center space-x-2 text-gray-400">
-            <Calendar size={16} aria-hidden="true" />
-            <span class="font-mono text-sm">Available for new projects</span>
-          </div>
-        </div>
-
-        <!-- Social links -->
-        <div class="flex space-x-4 pt-2">
-          <a
-            href="https://github.com/marceoroq"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors"
-            aria-label="Visit GitHub profile"
-          >
-            <Github size={20} aria-hidden="true" />
-          </a>
-          <a
-            href="https://linkedin.com/in/marcelo-oroquieta"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors"
-            aria-label="Visit LinkedIn profile"
-          >
-            <Linkedin size={20} aria-hidden="true" />
-          </a>
-        </div>
-      </div>
     </div>
 
     <!-- Divider -->
     <div class="border-t border-gray-200 pt-8">
-      <!-- Bottom section -->
       <div
-        class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
+        class="flex w-full justify-center gap-2 text-gray-400 font-mono text-sm"
       >
-        <!-- Copyright -->
-        <div
-          class="flex items-center space-x-2 text-gray-400 font-mono text-sm"
-        >
-          <span>© {currentYear} Marcelo Oroquieta. All rights reserved.</span>
-        </div>
-
-        <!-- Built with love -->
-        <div
-          class="flex items-center space-x-2 text-gray-400 font-mono text-sm"
-        >
-          Designed and coded with ☕️ by Marcelo Oroquieta
-        </div>
+        Designed and coded with ☕️ by Marcelo Oroquieta
       </div>
     </div>
   </div>
