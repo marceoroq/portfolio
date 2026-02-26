@@ -20,7 +20,7 @@ export default function TestimonialCarousel({ testimonials }: CarouselProps) {
     if (!emblaNodeRef.current) return;
 
     const api = EmblaCarousel(emblaNodeRef.current, { loop: true }, [
-      Autoplay({ delay: 5000, stopOnInteraction: true }),
+      Autoplay({ delay: 10000, stopOnInteraction: true }),
     ]);
 
     setEmblaApi(api);
@@ -90,10 +90,20 @@ export default function TestimonialCarousel({ testimonials }: CarouselProps) {
                       </div>
                     </div>
                   </div>
-
-                  <div className="ml-4 w-10 h-10 rounded-full border border-slate-200 text-slate-500 flex items-center justify-center font-semibold">
-                    {t.companyMarkText ?? t.company.slice(0, 1)}
-                  </div>
+                  {t.companyLogo ? (
+                    <img
+                      src={t.companyLogo}
+                      alt={`Logo de ${t.company}`}
+                      width="32"
+                      height="32"
+                      loading="lazy"
+                      className="w-8 h-8 rounded-full object-cover bg-slate-100"
+                    />
+                  ) : (
+                    <div className="ml-4 w-10 h-10 aspect-square rounded-full border border-slate-200 text-slate-500 flex items-center justify-center font-semibold">
+                      {t.company.slice(0, 1)}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

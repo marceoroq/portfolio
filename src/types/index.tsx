@@ -6,7 +6,7 @@ export type Testimonial = {
   title: string;
   company: string;
   avatarSrc: string;
-  companyMarkText?: string;
+  companyLogo?: string;
 };
 
 export type ExperienceRole = {
