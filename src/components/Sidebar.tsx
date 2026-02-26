@@ -63,7 +63,11 @@ export const Sidebar = () => {
         <div className="px-14 border-b border-slate-200 w-1/2"></div>
 
         <div class="flex gap-10 font-mono my-10">
-          <a href="https://github.com/marceoroq" target="_blank">
+          <a
+            href="https://github.com/marceoroq"
+            target="_blank"
+            aria-label="Go to Marcelo Oroquieta's GitHub profile"
+          >
             <div class="text-slate-500 flex gap-2 hover:text-blue-500">
               <Github class="w-8 h-8" />
             </div>
@@ -71,6 +75,7 @@ export const Sidebar = () => {
           <a
             href="https://www.linkedin.com/in/marcelo-oroquieta/"
             target="_blank"
+            aria-label="Go to Marcelo Oroquieta's LinkedIn profile"
           >
             <div class="text-slate-500 flex gap-2 hover:text-blue-500">
               <Linkedin class="w-8 h-8" />
