@@ -30,7 +30,7 @@ const { experience } = Astro.props as { experience: CompanyExperience };
         const isFirst = index === 0;
 
         return (
-          <li class="flex items-stretch gap-4">
+          <li class="flex items-stretch gap-1">
             <div class="flex w-10 flex-col items-center">
               <div class="grid size-9 place-items-center rounded-sm border-2 border-slate-200 bg-white text-slate-700">
                 <PositionIcon class="size-4 text-slate-400 stroke-3" />
@@ -41,19 +41,19 @@ const { experience } = Astro.props as { experience: CompanyExperience };
             </div>
 
             {/* --- MAIN CONTAINER --- */}
-            <div class="flex w-full flex-col gap-2 overflow-hidden">
+            <div class="flex w-full flex-col gap-2 overflow-hidden mb-2">
               <div
                 class="group w-full"
                 data-state={isFirst ? "open" : "closed"}
               >
                 <button
                   type="button"
-                  class="flex header-summary w-full cursor-pointer items-start gap-6 mt-1 text-left outline-none"
+                  class="flex header-summary w-full cursor-pointer items-start gap-6 text-left outline-none px-2 py-1 rounded-md hover:bg-slate-50"
                 >
                   <div class="min-w-0 flex-1">
                     <div class="flex justify-between items-start md:items-center gap-2">
                       <div class="flex flex-1 min-w-0 flex-col md:flex-row md:items-center md:gap-2">
-                        <p class="truncate text-xl font-semibold text-slate-500 transition-colors duration-300 group-data-[state=open]:text-black">
+                        <p class="truncate text-xl font-semibold text-slate-500 group-hover:text-black transition-colors duration-300 group-data-[state=open]:text-black">
                           {role.title}
                         </p>
                         <p class="shrink-0 whitespace-nowrap text-xs text-slate-400">
@@ -61,14 +61,14 @@ const { experience } = Astro.props as { experience: CompanyExperience };
                           {role.period}
                         </p>
                       </div>
-                      <div class="mt-1 text-slate-400 transition-transform duration-500 group-data-[state=open]:-scale-100">
+                      <div class="text-slate-400 transition-transform duration-500 group-data-[state=open]:-scale-100">
                         <ChevronDown class="size-5" />
                       </div>
                     </div>
 
                     <div class="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out group-data-[state=open]:grid-rows-[0fr]">
-                      <div class="overflow-hidden mask-[linear-gradient(to_bottom,transparent,#000_10px,#000_calc(100%-15px),transparent)]">
-                        <div class="mt-2 flex flex-wrap gap-2 pb-4 transition-transform duration-400 ease-out group-data-[state=open]:-translate-y-8 sm:flex">
+                      <div class="overflow-hidden mask-[linear-gradient(to_bottom,transparent,#000_10px)]">
+                        <div class="mt-2 flex flex-wrap gap-2 transition-transform duration-400 ease-out group-data-[state=open]:-translate-y-8 sm:flex">
                           {role.skills.map((skill) => (
                             <span class="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] tracking-wide text-slate-600">
                               {skill.toUpperCase()}
