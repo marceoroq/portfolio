@@ -23,38 +23,81 @@ import {
   siShadcnui,
   siVercel,
   siResend,
-  siServerless,
 } from "simple-icons";
 import type { SimpleIcon } from "simple-icons";
 
 type Skill = {
   name: string;
-  icon: SimpleIcon;
+  icon?: SimpleIcon;
+  image?: string;
+  url: string;
 };
 
 const skills: Skill[] = [
-  { name: "JavaScript", icon: siJavascript },
-  { name: "TypeScript", icon: siTypescript },
-  { name: "Next.js", icon: siNextdotjs },
-  { name: "React", icon: siReact },
-  { name: "Astro", icon: siAstro },
-  { name: "Node.js", icon: siNodedotjs },
-  { name: "PostgreSQL", icon: siPostgresql },
-  { name: "MongoDB", icon: siMongodb },
-  { name: "Supabase", icon: siSupabase },
-  { name: "Firebase", icon: siFirebase },
-  { name: "Prisma", icon: siPrisma },
-  { name: "Tailwind CSS", icon: siTailwindcss },
-  { name: "Shadcn UI", icon: siShadcnui },
-  { name: "Figma", icon: siFigma },
-  { name: "Storybook", icon: siStorybook },
-  { name: "Git", icon: siGit },
-  { name: "HTML5", icon: siHtml5 },
-  { name: "CSS3", icon: siCss },
-  { name: "Zod", icon: siZod },
-  { name: "Three.js", icon: siThreedotjs },
-  { name: "Vercel", icon: siVercel },
-  { name: "Resend", icon: siResend },
+  {
+    name: "JavaScript",
+    icon: siJavascript,
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  {
+    name: "TypeScript",
+    icon: siTypescript,
+    url: "https://www.typescriptlang.org/",
+  },
+  { name: "Next.js", icon: siNextdotjs, url: "https://nextjs.org/" },
+  { name: "React", icon: siReact, url: "https://react.dev/" },
+  { name: "Astro", icon: siAstro, url: "https://astro.build/" },
+  { name: "Node.js", icon: siNodedotjs, url: "https://nodejs.org/" },
+  {
+    name: "PostgreSQL",
+    icon: siPostgresql,
+    url: "https://www.postgresql.org/",
+  },
+  { name: "MongoDB", icon: siMongodb, url: "https://www.mongodb.com/" },
+  { name: "Supabase", icon: siSupabase, url: "https://supabase.com/" },
+  { name: "Firebase", icon: siFirebase, url: "https://firebase.google.com/" },
+  { name: "Prisma", icon: siPrisma, url: "https://www.prisma.io/" },
+  {
+    name: "Tailwind CSS",
+    icon: siTailwindcss,
+    url: "https://tailwindcss.com/",
+  },
+  { name: "Shadcn UI", icon: siShadcnui, url: "https://ui.shadcn.com/" },
+  { name: "Figma", icon: siFigma, url: "https://www.figma.com/" },
+  { name: "Storybook", icon: siStorybook, url: "https://storybook.js.org/" },
+  { name: "Git", icon: siGit, url: "https://git-scm.com/" },
+  {
+    name: "HTML5",
+    icon: siHtml5,
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+  },
+  {
+    name: "CSS3",
+    icon: siCss,
+    url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+  },
+  { name: "Zod", icon: siZod, url: "https://zod.dev/" },
+  { name: "Three.js", icon: siThreedotjs, url: "https://threejs.org/" },
+  { name: "Vercel", icon: siVercel, url: "https://vercel.com/" },
+  { name: "Resend", icon: siResend, url: "https://resend.com/" },
+];
+
+const skillsWithImage: Skill[] = [
+  {
+    name: "NeonDB",
+    image: "/images/neondb-logo.webp",
+    url: "https://neon.tech/",
+  },
+  {
+    name: "AI SDK",
+    image: "/images/ai-sdk-logo.png",
+    url: "https://ai-sdk.dev/",
+  },
+  {
+    name: "Prompt Kit",
+    image: "/images/prompt-kit-logo.webp",
+    url: "https://www.prompt-kit.com/",
+  },
 ];
 ---
 
@@ -71,38 +114,50 @@ const skills: Skill[] = [
       class="w-full grid grid-cols-3 gap-x-4 gap-y-2 md:gap-x-6 md:gap-y-8 sm:grid-cols-6 md:grid-cols-8"
     >
       {
-        skills.map(({ name, icon }) => (
-          <li
-            tabindex="0"
-            class="group flex flex-col items-center gap-2 rounded-xl px-2 py-3 transition-colors hover:bg-white/60 hover:scale-110 focus-visible:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
-            style={`--skill-color: #${icon.hex};`}
-            aria-label={name}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              class="size-12 transition-all duration-200 text-(--skill-color)"
+        skills.map(({ name, icon, url }) => (
+          <li>
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex flex-col items-center gap-2 rounded-xl px-2 py-3 transition-colors hover:bg-white/60 hover:scale-110 focus-visible:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
+              style={`--skill-color: #${icon?.hex};`}
+              aria-label={name}
             >
-              <path fill="currentColor" d={icon.path} />
-            </svg>
-            <p class="text-xs font-mono text-slate-500">{name}</p>
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                class="size-12 transition-all duration-200 text-(--skill-color)"
+              >
+                <path fill="currentColor" d={icon?.path} />
+              </svg>
+              <p class="text-xs font-mono text-slate-500">{name}</p>
+            </a>
           </li>
         ))
       }
-      <li
-        tabindex="0"
-        class="group flex flex-col items-center gap-2 rounded-xl px-2 py-3 transition-colors hover:bg-white/60 hover:scale-110 focus-visible:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
-        aria-label="neondb"
-      >
-        <Image
-          width={100}
-          height={100}
-          src="/images/neondb-logo.png"
-          alt="neondb"
-          class="size-12"
-        />
-        <p class="text-xs font-mono text-slate-500">NeonDB</p>
-      </li>
+      {
+        skillsWithImage.map(({ name, image, url }) => (
+          <li>
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex flex-col items-center gap-2 rounded-xl px-2 py-3 transition-colors hover:bg-white/60 hover:scale-110 focus-visible:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
+              aria-label={name}
+            >
+              <Image
+                width={100}
+                height={100}
+                src={image!}
+                alt={name}
+                class="size-12"
+              />
+              <p class="text-xs font-mono text-slate-500">{name}</p>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>
