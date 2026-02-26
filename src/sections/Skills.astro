@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import {
   siAstro,
   siCss,
@@ -22,6 +23,7 @@ import {
   siShadcnui,
   siVercel,
   siResend,
+  siServerless,
 } from "simple-icons";
 import type { SimpleIcon } from "simple-icons";
 
@@ -87,6 +89,20 @@ const skills: Skill[] = [
           </li>
         ))
       }
+      <li
+        tabindex="0"
+        class="group flex flex-col items-center gap-2 rounded-xl px-2 py-3 transition-colors hover:bg-white/60 hover:scale-110 focus-visible:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
+        aria-label="neondb"
+      >
+        <Image
+          width={100}
+          height={100}
+          src="/images/neondb-logo.png"
+          alt="neondb"
+          class="size-12"
+        />
+        <p class="text-xs font-mono text-slate-500">NeonDB</p>
+      </li>
     </ul>
   </div>
 </section>
