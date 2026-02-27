@@ -1,4 +1,4 @@
-import { Menu, X, Moon, Languages, Github, Linkedin } from "lucide-preact";
+import { X, Menu, Check, Github, Linkedin, Languages } from "lucide-preact";
 import { useState } from "preact/hooks";
 import { navItems } from "../lib/constants";
 
@@ -12,7 +12,7 @@ export const Sidebar = () => {
   return (
     <>
       <Menu
-        className="md:hidden h-10 w-10 text-2xl cursor-pointer"
+        className="md:hidden size-10 text-2xl cursor-pointer"
         onClick={toggleSidebar}
       />
       <nav
@@ -41,22 +41,20 @@ export const Sidebar = () => {
 
         <div className="px-14 border-b border-slate-200 w-1/2 mt-4"></div>
 
-        <div className="flex  justify-center items-center gap-18 py-12 text-slate-700">
-          <div className="flex flex-col justify-center items-center gap-1.5">
-            <h2>APPEARANCE</h2>
-            <div className="flex justify-center items-center gap-1.5">
-              <Moon className="hover:text-blue-500 cursor-pointer" /> Light Mode
+        <div className="w-full flex justify-center items-center gap-18 py-8 text-slate-700">
+          <div className="w-full flex flex-col justify-center items-center gap-8">
+            <div className="flex items-center gap-1">
+              <Languages className="size-4" />
+              <h2>LANGUAGE</h2>
             </div>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-1.5">
-            <h2>LANGUAGE</h2>
-            <a
-              href="#spanish"
-              className="hover:text-blue-500 font-sans font-medium flex gap-1.5"
-            >
-              <Languages />
-              EN
-            </a>
+            <div className="flex w-full justify-center items-center gap-12 text-2xl">
+              <div className="relative flex items-center gap-2 font-bold">
+                <Check className="absolute size-5 -left-6" />
+                <span>English</span>
+              </div>
+
+              <span>Spanish</span>
+            </div>
           </div>
         </div>
 

@@ -1,7 +1,9 @@
 ---
-import { Moon, FileDown, Languages } from "@lucide/astro";
+import { Moon, FileDown } from "@lucide/astro";
+import { navItems } from "src/lib/constants";
+
 import { Sidebar } from "src/components/Sidebar";
-import { navItems } from "../lib/constants";
+import LanguageMenu from "src/components/LanguageMenu.astro";
 ---
 
 <header
@@ -33,13 +35,7 @@ import { navItems } from "../lib/constants";
     >
       <Moon class="hover:text-blue-500 cursor-pointer" />
       <li>
-        <a
-          href="#spanish"
-          class="hover:text-blue-500 font-sans font-medium flex gap-1.5"
-        >
-          <Languages />
-          EN
-        </a>
+        <LanguageMenu />
       </li>
     </ul>
 
@@ -50,6 +46,11 @@ import { navItems } from "../lib/constants";
       Download CV
     </button>
 
-    <Sidebar client:visible />
+    <div class="flex items-center gap-4">
+      <Moon
+        class="md:hidden hover:text-blue-500 cursor-pointer size-9 stroke-2"
+      />
+      <Sidebar client:visible />
+    </div>
   </nav>
 </header>
