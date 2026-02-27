@@ -1,14 +1,8 @@
 ---
 import { Check, ChevronDown, Languages } from "@lucide/astro";
+import { languages } from "src/lib/i18n/ui";
 
-const options: Array<{ locale: string; label: string; short: string }> = [
-  { locale: "en", label: "English", short: "EN" },
-  { locale: "es", label: "Español", short: "ES" },
-];
-
-const locale = "en";
-
-const current = options.find((o) => o.locale === locale) ?? options[0];
+const currentLanguage = Astro.currentLocale || "en";
 ---
 
 <details class="relative group" data-language-menu>
@@ -16,7 +10,7 @@ const current = options.find((o) => o.locale === locale) ?? options[0];
     class="flex items-center gap-1.5 hover:text-blue-500 font-sans font-medium cursor-pointer list-none select-none"
   >
     <Languages class="w-5 h-5" />
-    <span>{current.short}</span>
+    <span class="uppercase">{currentLanguage}</span>
     <ChevronDown
       class="w-4 h-4 text-slate-500 transition-transform group-open:rotate-180"
     />
@@ -26,19 +20,19 @@ const current = options.find((o) => o.locale === locale) ?? options[0];
     class="absolute right-0 mt-2 w-40 rounded-xl border border-slate-200 bg-white shadow-lg p-1 z-30"
   >
     {
-      options.map((option) => (
+      Object.entries(languages).map(([lang, label]) => (
         <a
-          href="#"
+          href={`/${lang}`}
           class:list={[
             "flex items-center justify-between gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-blue-500 transition-colors",
             {
-              "text-slate-900 font-semibold": option.locale === locale,
-              "text-slate-700": option.locale !== locale,
+              "text-slate-900 font-semibold": lang === currentLanguage,
+              "text-slate-700": lang !== currentLanguage,
             },
           ]}
         >
-          <span>{option.label}</span>
-          {option.locale === locale && <Check class="w-4 h-4" />}
+          <span>{label}</span>
+          {lang === currentLanguage && <Check class="w-4 h-4" />}
         </a>
       ))
     }

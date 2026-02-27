@@ -15,6 +15,13 @@ export default defineConfig({
       compat: true,
     }),
   ],
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "es"],
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
   env: {
     schema: {
       CONTACT_EMAIL: envField.string({

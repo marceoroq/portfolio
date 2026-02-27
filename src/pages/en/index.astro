@@ -1,0 +1,31 @@
+---
+import Layout from "src/layouts/Layout.astro";
+
+import Hero from "src/sections/Hero.astro";
+import Header from "src/sections/Header.astro";
+import Footer from "src/sections/Footer.astro";
+import Skills from "src/sections/Skills.astro";
+import Contact from "src/sections/Contact.astro";
+import Projects from "src/sections/Projects.astro";
+import Experience from "src/sections/Experience.astro";
+import Testimonials from "src/sections/Testimonials.astro";
+---
+
+<Layout>
+  <div class="fixed -z-1 h-full w-full bg-white">
+    <div
+      class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
+    >
+    </div>
+  </div>
+  <Header />
+  <main>
+    <Hero />
+    <Projects />
+    <Experience />
+    <Skills />
+    <Testimonials />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
