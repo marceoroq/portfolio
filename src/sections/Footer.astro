@@ -9,7 +9,7 @@ const t = useTranslations(currentLanguage);
 
 <footer
   id="footer"
-  class="text-slate-900 py-12 px-4 sm:px-6 lg:px-8 relative"
+  class="text-slate-900 py-12 px-4 sm:px-6 lg:px-8 relative dark:text-text-primary"
   role="contentinfo"
   aria-label={t("footer.ariaLabel")}
 >
@@ -17,10 +17,10 @@ const t = useTranslations(currentLanguage);
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
       <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-bold font-mono">Marcelo Oroquieta</h2>
-        <p class="text-gray-700 font-mono text-sm">
+        <p class="text-gray-700 font-mono text-sm dark:text-text-secondary">
           {t("footer.description")}
         </p>
-        <div class="flex items-center gap-2 text-gray-400">
+        <div class="flex items-center gap-2 text-gray-400 dark:text-text-muted">
           <MapPin size={16} aria-hidden="true" />
           <span class="font-mono text-sm">{t("footer.location")}</span>
         </div>
@@ -46,7 +46,7 @@ const t = useTranslations(currentLanguage);
             <li>
               <a
                 href="#hero"
-                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
+                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block dark:text-text-secondary"
                 aria-label={t("footer.nav.hero.ariaLabel")}
               >
                 {t("footer.nav.hero")}
@@ -55,7 +55,7 @@ const t = useTranslations(currentLanguage);
             <li>
               <a
                 href="#experience"
-                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
+                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block dark:text-text-secondary"
                 aria-label={t("footer.nav.experience.ariaLabel")}
               >
                 {t("footer.nav.experience")}
@@ -64,7 +64,7 @@ const t = useTranslations(currentLanguage);
             <li>
               <a
                 href="#projects"
-                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
+                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block dark:text-text-secondary"
                 aria-label={t("footer.nav.projects.ariaLabel")}
               >
                 {t("footer.nav.projects")}
@@ -73,7 +73,7 @@ const t = useTranslations(currentLanguage);
             <li>
               <a
                 href="#contact"
-                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
+                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block dark:text-text-secondary"
                 aria-label={t("footer.nav.contact.ariaLabel")}
               >
                 {t("footer.nav.contact")}
@@ -85,9 +85,9 @@ const t = useTranslations(currentLanguage);
     </div>
 
     <!-- Divider -->
-    <div class="border-t border-gray-200 pt-8">
+    <div class="border-t border-gray-200 pt-8 dark:border-border-secondary">
       <div
-        class="flex w-full justify-center gap-2 text-gray-400 font-mono text-sm"
+        class="flex w-full justify-center gap-2 text-gray-400 font-mono text-sm dark:text-text-muted"
       >
         {t("footer.credit").replace("{name}", "Marcelo Oroquieta")}
       </div>

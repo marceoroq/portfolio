@@ -218,7 +218,9 @@ const freelanceExperiences: CompanyExperience = {
   <div
     class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-16"
   >
-    <h2 class="text-5xl font-bold text-slate-600">{t("experience.title")}</h2>
+    <h2 class="text-5xl font-bold text-slate-600 dark:text-text-primary">
+      {t("experience.title")}
+    </h2>
 
     <ExperienceAccordion experience={globantExperience} client:visible />
     <ExperienceAccordion experience={freelanceExperiences} client:visible />

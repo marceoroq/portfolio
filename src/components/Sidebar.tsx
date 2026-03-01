@@ -22,7 +22,7 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
         onClick={toggleSidebar}
       />
       <nav
-        className={`flex flex-col justify-center items-center absolute transform transition-transform duration-500 ease-in-out w-full top-0 right-0 bg-white p-4 md:hidden font-mono ${
+        className={`flex flex-col justify-center items-center absolute transform transition-transform duration-500 ease-in-out w-full top-0 right-0 bg-white p-4 md:hidden font-mono dark:bg-bg-primary dark:text-text-primary ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -46,9 +46,9 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
           ))}
         </ul>
 
-        <div className="px-14 border-b border-slate-200 w-1/2 mt-4"></div>
+        <div className="px-14 border-b border-slate-200 w-1/2 mt-4 dark:border-border-secondary"></div>
 
-        <div className="w-full flex justify-center items-center gap-18 py-8 text-slate-700">
+        <div className="w-full flex justify-center items-center gap-18 py-8 text-slate-700 dark:text-text-secondary">
           <div className="w-full flex flex-col justify-center items-center gap-8">
             <div className="flex items-center gap-1">
               <Languages className="size-4" />
@@ -77,7 +77,7 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
           </div>
         </div>
 
-        <div className="px-14 border-b border-slate-200 w-1/2"></div>
+        <div className="px-14 border-b border-slate-200 w-1/2 dark:border-border-secondary"></div>
 
         <div class="flex gap-10 font-mono my-10">
           <a
@@ -85,7 +85,7 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
             target="_blank"
             aria-label="Go to Marcelo Oroquieta's GitHub profile"
           >
-            <div class="text-slate-500 flex gap-2 hover:text-blue-500">
+            <div class="text-slate-500 flex gap-2 hover:text-blue-500 dark:text-text-muted">
               <Github class="w-8 h-8" />
             </div>
           </a>
@@ -94,7 +94,7 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
             target="_blank"
             aria-label="Go to Marcelo Oroquieta's LinkedIn profile"
           >
-            <div class="text-slate-500 flex gap-2 hover:text-blue-500">
+            <div class="text-slate-500 flex gap-2 hover:text-blue-500 dark:text-text-muted">
               <Linkedin class="w-8 h-8" />
             </div>
           </a>
