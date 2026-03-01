@@ -17,17 +17,17 @@ const currentLanguage = Astro.currentLocale || "en";
   </summary>
 
   <div
-    class="absolute right-0 mt-2 w-40 rounded-xl border border-slate-200 bg-white shadow-lg p-1 z-30"
+    class="absolute right-0 mt-2 w-40 rounded-xl border border-border-primary bg-white dark:bg-slate-700 shadow-lg p-1 z-30"
   >
     {
       Object.entries(languages).map(([lang, label]) => (
         <a
           href={`/${lang}`}
           class:list={[
-            "flex items-center justify-between gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-blue-500 transition-colors",
+            "flex items-center justify-between gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-text-primary transition-colors",
             {
-              "text-slate-900 font-semibold": lang === currentLanguage,
-              "text-slate-700": lang !== currentLanguage,
+              "text-text-primary font-semibold": lang === currentLanguage,
+              "text-text-secondary": lang !== currentLanguage,
             },
           ]}
         >
