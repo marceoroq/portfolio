@@ -4,6 +4,7 @@ import "@fontsource/geist-sans/500.css";
 import "@fontsource/geist-sans/700.css";
 import "@fontsource-variable/geist-mono";
 import "../styles/global.css";
+import ClientRouter from "astro/components/ClientRouter.astro";
 
 import { useTranslations } from "src/lib/i18n/utils";
 
@@ -27,6 +28,7 @@ const t = useTranslations(currentLanguage as "en" | "es");
       name="keywords"
       content="Marcelo Oroquieta, Portfolio, Web Developer, Frontend Developer, JavaScript, React, Next.js, TailwindCSS, Supabase, Fullstack Developer"
     />
+    <ClientRouter />
   </head>
   <body>
     <slot />
