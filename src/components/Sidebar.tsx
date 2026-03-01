@@ -1,8 +1,14 @@
 import { X, Menu, Check, Github, Linkedin, Languages } from "lucide-preact";
 import { useState } from "preact/hooks";
-import { navItems } from "../lib/constants";
 
-export const Sidebar = () => {
+import { navItems } from "src/lib/constants";
+import { languages } from "src/lib/i18n/ui";
+import { useTranslations } from "src/lib/i18n/utils";
+
+import type { Language } from "src/types";
+
+export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
+  const t = useTranslations(currentLanguage);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -33,7 +39,7 @@ export const Sidebar = () => {
                 href={`#${item.id}`}
                 className="hover:text-blue-500 text-2xl hover:border-b-4 hover:border-blue-500 pb-2"
               >
-                {item.label}
+                {t(item.labelKey)}
               </a>
             </li>
           ))}
@@ -45,15 +51,27 @@ export const Sidebar = () => {
           <div className="w-full flex flex-col justify-center items-center gap-8">
             <div className="flex items-center gap-1">
               <Languages className="size-4" />
-              <h2>LANGUAGE</h2>
+              <h2 className="uppercase">{t("sidebar.language")}</h2>
             </div>
             <div className="flex w-full justify-center items-center gap-12 text-2xl">
-              <div className="relative flex items-center gap-2 font-bold">
+              {Object.entries(languages).map(([language, label]) =>
+                language === currentLanguage ? (
+                  <div className="relative flex items-center gap-2 font-bold">
+                    <Check className="absolute size-5 -left-6" />
+                    <span>{label}</span>
+                  </div>
+                ) : (
+                  <a href={`/${language}`} className="hover:text-blue-500">
+                    <span>{label}</span>
+                  </a>
+                ),
+              )}
+              {/* <div className="relative flex items-center gap-2 font-bold">
                 <Check className="absolute size-5 -left-6" />
                 <span>English</span>
-              </div>
+              </div> */}
 
-              <span>Spanish</span>
+              {/* <span>Spanish</span> */}
             </div>
           </div>
         </div>

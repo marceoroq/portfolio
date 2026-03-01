@@ -1,4 +1,5 @@
 import type { Icon as IconType } from "@lucide/astro";
+import type { languages } from "src/lib/i18n/ui";
 
 export type Testimonial = {
   quote: string;
@@ -23,3 +24,5 @@ export type CompanyExperience = {
   companyLogo: string;
   roles: ExperienceRole[];
 };
+
+export type Language = keyof typeof languages;

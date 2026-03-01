@@ -1,11 +1,13 @@
+import type { Language } from "src/types";
+
 export const languages = {
   en: "English",
   es: "Español",
 };
 
-export const defaultLang = "en";
+export const defaultLang: Language = "en";
 
-export const ui: Record<keyof typeof languages, Record<string, string>> = {
+export const ui: Record<Language, Record<string, string>> = {
   en: {
     "head.title": "Marcelo Oroquieta - Portfolio",
     "head.description": "Marcelo Oroquieta - Portfolio",
@@ -14,6 +16,7 @@ export const ui: Record<keyof typeof languages, Record<string, string>> = {
     "nav.testimonials": "Testimonials",
     "nav.contact": "Contact",
     "nav.button.downloadcv": "Download CV",
+    "sidebar.language": "Language",
     "hero.position": "Frontend Web Developer",
     "hero.description":
       "Building sleek, high-performing web apps with Next.js, React and Astro. Expanding my skill set into fullstack architecture and eagerly exploring the AI space",
@@ -29,6 +32,7 @@ export const ui: Record<keyof typeof languages, Record<string, string>> = {
     "nav.testimonials": "Testimonios",
     "nav.contact": "Contacto",
     "nav.button.downloadcv": "Descargar CV",
+    "sidebar.language": "Idioma",
     "hero.position": "Desarrollador Frontend Web",
     "hero.description":
       "Desarrollando aplicaciones web elegantes y de alto rendimiento con Next.js, React y Astro. Ampliando mis habilidades hacia la arquitectura fullstack y explorando con entusiasmo el campo de la IA",
