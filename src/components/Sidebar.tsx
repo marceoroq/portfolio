@@ -34,10 +34,11 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
         </div>
         <ul className="flex flex-col justify-center items-center gap-12 pb-8">
           {navItems.map((item) => (
-            <li>
+            <li key={item.id}>
               <a
                 href={`#${item.id}`}
                 className="hover:text-blue-500 text-2xl hover:border-b-4 hover:border-blue-500 pb-2"
+                onClick={toggleSidebar}
               >
                 {t(item.labelKey)}
               </a>
