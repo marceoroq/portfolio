@@ -10,23 +10,28 @@ import {
 } from "@lucide/astro";
 
 import ExperienceAccordion from "src/components/ExperienceAccordion.astro";
+import { useTranslations } from "src/lib/i18n/utils";
+import type { Language } from "src/types";
 
 import type { CompanyExperience } from "src/types";
 
+const currentLanguage: Language = (Astro.currentLocale || "en") as Language;
+const t = useTranslations(currentLanguage);
+
 const globantExperience: CompanyExperience = {
-  company: "Globant",
+  company: t("experience.globant.company"),
   companyLogo: "/images/globant-logo.webp",
   roles: [
     {
-      title: "Web UI Developer SSr Adv",
+      title: t("experience.globant.roles.0.title"),
       period: "11.2024 — 09.2025",
-      employment: "Full-time",
+      employment: t("experience.employment.fullTime"),
       positionIcon: Code,
       bullets: [
-        "Implemented complex visual components for an executive dashboard, including an interactive 3D globe built with Three.js and Globe.gl.",
-        "Optimized rendering performance in heavy 3D scenes, ensuring smoothness, stability, and alignment with UX requirements.",
-        "Built data adapters for Salesforce APIs, handling queries, transformations, and validation with Zod to ensure reliable data flow.",
-        "Participated in rigorous code reviews and mentored junior developers, strengthening overall team code quality.",
+        t("experience.globant.roles.0.bullets.0"),
+        t("experience.globant.roles.0.bullets.1"),
+        t("experience.globant.roles.0.bullets.2"),
+        t("experience.globant.roles.0.bullets.3"),
       ],
       skills: [
         "React",
@@ -39,15 +44,15 @@ const globantExperience: CompanyExperience = {
       ],
     },
     {
-      title: "Web UI Developer SSr",
+      title: t("experience.globant.roles.1.title"),
       period: "08.2022 — 11.2024",
-      employment: "Full-time",
+      employment: t("experience.employment.fullTime"),
       positionIcon: Braces,
       bullets: [
-        "Led A11y improvements after an external audit, resolving key compliance issues and raising the platform’s accessibility standards for public educational use.",
-        "Managed application state with MobX and introduced TypeScript across core modules, reducing runtime errors and improving responsiveness.",
-        "Developed responsive and accessible interfaces in React/Next.js using Styled Components combined with Tailwind CSS.",
-        "Implemented testing strategies to validate components and ensure the reliability and stability of the application.",
+        t("experience.globant.roles.1.bullets.0"),
+        t("experience.globant.roles.1.bullets.1"),
+        t("experience.globant.roles.1.bullets.2"),
+        t("experience.globant.roles.1.bullets.3"),
       ],
       skills: [
         "React",
@@ -61,15 +66,15 @@ const globantExperience: CompanyExperience = {
       ],
     },
     {
-      title: "Web UI Developer Jr Adv",
+      title: t("experience.globant.roles.2.title"),
       period: "08.2021 — 08.2022",
-      employment: "Full-time",
+      employment: t("experience.employment.fullTime"),
       positionIcon: FileBraces,
       bullets: [
-        "Applied Atomic Design principles to build reusable, scalable UI components, accelerating feature development for a sustainability project.",
-        "Implemented React to build a responsive and dynamic user interface, actively engaging in team meetings and progress updates.",
-        "Contributed to architectural discussions and decisions during the early stages of the project.",
-        "Participated in code reviews and provided constructive feedback to enhance overall code quality.",
+        t("experience.globant.roles.2.bullets.0"),
+        t("experience.globant.roles.2.bullets.1"),
+        t("experience.globant.roles.2.bullets.2"),
+        t("experience.globant.roles.2.bullets.3"),
       ],
       skills: [
         "React",
@@ -82,15 +87,15 @@ const globantExperience: CompanyExperience = {
       ],
     },
     {
-      title: "Service Desk Analyst SSr Adv",
+      title: t("experience.globant.roles.3.title"),
       period: "04.2019 — 08.2021",
-      employment: "Full-time",
+      employment: t("experience.employment.fullTime"),
       positionIcon: Monitor,
       bullets: [
-        "Provided local and global remote technical support for Windows, Linux (Ubuntu), macOS, and mobile devices.",
-        "Deployed desktop and laptop equipment efficiently using MDT and JAMF.",
-        "Initiated and developed an internal project utilizing artificial intelligence to improve service area operations.",
-        "Managed device inventory, assigned application licenses, and audited security standards compliance.",
+        t("experience.globant.roles.3.bullets.0"),
+        t("experience.globant.roles.3.bullets.1"),
+        t("experience.globant.roles.3.bullets.2"),
+        t("experience.globant.roles.3.bullets.3"),
       ],
       skills: [
         "Technical Support",
@@ -102,15 +107,15 @@ const globantExperience: CompanyExperience = {
       ],
     },
     {
-      title: "Service Desk Analyst SSr",
+      title: t("experience.globant.roles.4.title"),
       period: "11.2017 — 04.2019",
-      employment: "Full-time",
+      employment: t("experience.employment.fullTime"),
       positionIcon: Headset,
       bullets: [
-        "Resolved hardware and software issues, providing maintenance for workstations, IP telephony, and meeting room peripherals.",
-        "Created and administered virtual machines to support various internal operations.",
-        "Administered and created documentation and guides for the support area's knowledge base.",
-        "Assisted remote areas such as Networks, Telephony, DataCenter, Systems Engineering, and Security.",
+        t("experience.globant.roles.4.bullets.0"),
+        t("experience.globant.roles.4.bullets.1"),
+        t("experience.globant.roles.4.bullets.2"),
+        t("experience.globant.roles.4.bullets.3"),
       ],
       skills: [
         "IT Support",
@@ -125,18 +130,18 @@ const globantExperience: CompanyExperience = {
 };
 
 const freelanceExperiences: CompanyExperience = {
-  company: "Freelance",
+  company: t("experience.freelance.company"),
   companyLogo: "/images/upwork-logo.webp",
   roles: [
     {
-      title: "Frontend Developer - Fullstack",
+      title: t("experience.freelance.roles.0.title"),
       period: "12.2025 — 02.2026",
-      employment: "Fulltime",
+      employment: t("experience.employment.fullTime"),
       positionIcon: Code,
       bullets: [
-        "Developed the rebuild of a compliance-embedded technology platform for fleets and mobility partners, migrating the entire application to Next.js to enhance performance and scalability.",
-        "Built 'Contact' and 'Coming Soon' pages ensuring pixel-perfect translation from UI designs to production.",
-        "Integrated SendGrid API to manage and automate reliable email communications within the platform.",
+        t("experience.freelance.roles.0.bullets.0"),
+        t("experience.freelance.roles.0.bullets.1"),
+        t("experience.freelance.roles.0.bullets.2"),
       ],
       skills: [
         "Next.js",
@@ -148,35 +153,34 @@ const freelanceExperiences: CompanyExperience = {
       ],
     },
     {
-      title: "Frontend React Developer",
+      title: t("experience.freelance.roles.1.title"),
       period: "09.2025",
       positionIcon: Braces,
       bullets: [
-        "Developed a UI chatbot interface for the frontend application using Prompt-kit.",
-        "Built responsive and modern UI components utilizing Next.js, React, Tailwind CSS, and Shadcn UI.",
+        t("experience.freelance.roles.1.bullets.0"),
+        t("experience.freelance.roles.1.bullets.1"),
       ],
       skills: ["Next.js", "React", "Tailwind CSS", "Shadcn UI", "Prompt-kit"],
     },
     {
-      title: "React & Next.js Developer",
+      title: t("experience.freelance.roles.2.title"),
       period: "09.2025",
       positionIcon: Code,
       bullets: [
-        "Migrated a car rental search application to a modern React and Next.js stack.",
-        "Architected the application to be fully embeddable via iframes for seamless integration into external client websites.",
-        "Rebuilt the UI based on the legacy design and integrated the frontend with a backend API, including a reservation inquiry form.",
+        t("experience.freelance.roles.2.bullets.0"),
+        t("experience.freelance.roles.2.bullets.1"),
+        t("experience.freelance.roles.2.bullets.2"),
       ],
       skills: ["React", "Next.js", "Iframes", "API Integration"],
     },
     {
-      title: "Next.js & Supabase Developer",
+      title: t("experience.freelance.roles.3.title"),
       period: "08.2025",
-      employment: "Freelance",
       positionIcon: Database,
       bullets: [
-        "Troubleshooted and refactored an AI-generated Next.js application used for managing building parking spaces.",
-        "Resolved UI bugs and complex Supabase integration issues that the initial AI generation failed to implement correctly.",
-        "Restructured the codebase to restore functionality, improve maintainability, and ensure a stable connection with the Supabase backend.",
+        t("experience.freelance.roles.3.bullets.0"),
+        t("experience.freelance.roles.3.bullets.1"),
+        t("experience.freelance.roles.3.bullets.2"),
       ],
       skills: [
         "Next.js",
@@ -187,23 +191,22 @@ const freelanceExperiences: CompanyExperience = {
       ],
     },
     {
-      title: "Frontend Development for Web3 Project",
+      title: t("experience.freelance.roles.4.title"),
       period: "03.2025 - 04.2025",
       positionIcon: CircleDollarSign,
       bullets: [
-        "Implemented responsive screens and reusable UI components based on Figma designs for a Web3 platform.",
-        "Built the user interface utilizing Tailwind CSS and heavily customized Shadcn UI components to meet specific design requirements.",
+        t("experience.freelance.roles.4.bullets.0"),
+        t("experience.freelance.roles.4.bullets.1"),
       ],
       skills: ["Tailwind CSS", "Shadcn UI", "Figma", "Web3"],
     },
     {
-      title: "WordPress Web Developer",
+      title: t("experience.freelance.roles.5.title"),
       period: "02.2025",
-      employment: "Freelance",
       positionIcon: Monitor,
       bullets: [
-        "Maintained a psychologist's website built on WordPress, ensuring platform stability.",
-        "Implemented necessary updates and corrected existing issues to improve overall site functionality.",
+        t("experience.freelance.roles.5.bullets.0"),
+        t("experience.freelance.roles.5.bullets.1"),
       ],
       skills: ["WordPress", "Web Maintenance", "Troubleshooting"],
     },
@@ -215,7 +218,7 @@ const freelanceExperiences: CompanyExperience = {
   <div
     class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-16"
   >
-    <h2 class="text-5xl font-bold text-slate-600">Experience</h2>
+    <h2 class="text-5xl font-bold text-slate-600">{t("experience.title")}</h2>
 
     <ExperienceAccordion experience={globantExperience} client:visible />
     <ExperienceAccordion experience={freelanceExperiences} client:visible />

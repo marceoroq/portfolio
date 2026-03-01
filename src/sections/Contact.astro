@@ -1,6 +1,11 @@
 ---
 import { Copy, Github, Linkedin, Mail } from "@lucide/astro";
 import { CONTACT_EMAIL } from "astro:env/server";
+import { useTranslations } from "src/lib/i18n/utils";
+import type { Language } from "src/types";
+
+const currentLanguage: Language = (Astro.currentLocale || "en") as Language;
+const t = useTranslations(currentLanguage);
 ---
 
 <section id="contact" class="w-full flex justify-center bg-slate-200 py-18">
@@ -8,12 +13,11 @@ import { CONTACT_EMAIL } from "astro:env/server";
     class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-10 font-mono"
   >
     <div class="px-3 py-1 rounded-full bg-slate-300/60 text-slate-600 text-sm">
-      Get in touch
+      {t("contact.badge")}
     </div>
 
     <p class="text-slate-500 text-center text-lg leading-7 max-w-2xl">
-      What’s next? Feel free to reach out to me if you are looking for a
-      developer, have a query, or simply want to connect.
+      {t("contact.description")}
     </p>
 
     <div class="flex items-center gap-2 md:gap-4 text-slate-800">
@@ -22,7 +26,10 @@ import { CONTACT_EMAIL } from "astro:env/server";
       <a
         href={`mailto:${CONTACT_EMAIL}`}
         class="text-lg sm:text-xl md:text-3xl font-bold hover:underline underline-offset-6 decoration-slate-400"
-        aria-label={`Send email to ${CONTACT_EMAIL}`}
+        aria-label={t("contact.email.ariaLabel").replace(
+          "{email}",
+          CONTACT_EMAIL,
+        )}
         data-contact-email
       >
         {CONTACT_EMAIL}
@@ -32,7 +39,7 @@ import { CONTACT_EMAIL } from "astro:env/server";
         <button
           type="button"
           class="p-2 rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-300/70 transition active:scale-95 cursor-pointer"
-          aria-label="Copy email address"
+          aria-label={t("contact.copyEmail.ariaLabel")}
           data-copy-email
         >
           <Copy class="w-5 h-5" aria-hidden="true" />
@@ -43,14 +50,14 @@ import { CONTACT_EMAIL } from "astro:env/server";
           aria-live="polite"
           data-copy-tooltip
         >
-          Copied!
+          {t("contact.copied")}
         </div>
       </div>
     </div>
 
     <div class="flex flex-col items-center gap-3 pt-4">
-      <p class="text-slate-500 text-sm">
-        You may also find me on these platforms!
+      <p class="text-slate-500 text-sm text-center">
+        {t("contact.social")}
       </p>
       <div class="flex items-center gap-5 text-slate-500">
         <a
@@ -58,7 +65,7 @@ import { CONTACT_EMAIL } from "astro:env/server";
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-blue-500 transition-colors"
-          aria-label="Visit GitHub profile"
+          aria-label={t("contact.github.ariaLabel")}
         >
           <Github class="w-5 h-5" aria-hidden="true" />
         </a>
@@ -67,7 +74,7 @@ import { CONTACT_EMAIL } from "astro:env/server";
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-blue-500 transition-colors"
-          aria-label="Visit LinkedIn profile"
+          aria-label={t("contact.linkedin.ariaLabel")}
         >
           <Linkedin class="w-5 h-5" aria-hidden="true" />
         </a>

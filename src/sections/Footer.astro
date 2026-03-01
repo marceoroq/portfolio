@@ -1,24 +1,28 @@
 ---
 import { MapPin } from "@lucide/astro";
+import { useTranslations } from "src/lib/i18n/utils";
+import type { Language } from "src/types";
+
+const currentLanguage: Language = (Astro.currentLocale || "en") as Language;
+const t = useTranslations(currentLanguage);
 ---
 
 <footer
   id="footer"
   class="text-slate-900 py-12 px-4 sm:px-6 lg:px-8 relative"
   role="contentinfo"
-  aria-label="Site footer"
+  aria-label={t("footer.ariaLabel")}
 >
   <div class="max-w-6xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
       <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-bold font-mono">Marcelo Oroquieta</h2>
         <p class="text-gray-700 font-mono text-sm">
-          Frontend Developer passionate about creating innovative digital
-          solutions
+          {t("footer.description")}
         </p>
         <div class="flex items-center gap-2 text-gray-400">
           <MapPin size={16} aria-hidden="true" />
-          <span class="font-mono text-sm">Remote | Mendoza, Argentina</span>
+          <span class="font-mono text-sm">{t("footer.location")}</span>
         </div>
         <div
           class="flex items-center gap-2 text-emerald-500 font-mono text-sm pl-[3px]"
@@ -30,49 +34,49 @@ import { MapPin } from "@lucide/astro";
             <span class="relative flex h-2.5 w-2.5 rounded-full bg-emerald-500"
             ></span>
           </div>
-          Available for Work
+          {t("footer.available")}
         </div>
       </div>
 
       <!-- Quick links -->
       <div class="flex flex-col md:items-end gap-4">
-        <h3 class="text-lg font-semibold font-mono">Quick Links</h3>
-        <nav aria-label="Footer navigation">
+        <h3 class="text-lg font-semibold font-mono">{t("footer.linksTitle")}</h3>
+        <nav aria-label={t("footer.nav.ariaLabel")}>
           <ul class="flex flex-col md:items-end gap-2">
             <li>
               <a
                 href="#hero"
                 class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
-                aria-label="Go to hero section"
+                aria-label={t("footer.nav.hero.ariaLabel")}
               >
-                Go to top
+                {t("footer.nav.hero")}
               </a>
             </li>
             <li>
               <a
                 href="#experience"
                 class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
-                aria-label="Go to experience section"
+                aria-label={t("footer.nav.experience.ariaLabel")}
               >
-                Experience
+                {t("footer.nav.experience")}
               </a>
             </li>
             <li>
               <a
                 href="#projects"
                 class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
-                aria-label="Go to projects section"
+                aria-label={t("footer.nav.projects.ariaLabel")}
               >
-                Projects
+                {t("footer.nav.projects")}
               </a>
             </li>
             <li>
               <a
                 href="#contact"
                 class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block"
-                aria-label="Go to contact section"
+                aria-label={t("footer.nav.contact.ariaLabel")}
               >
-                Contact
+                {t("footer.nav.contact")}
               </a>
             </li>
           </ul>
@@ -85,7 +89,7 @@ import { MapPin } from "@lucide/astro";
       <div
         class="flex w-full justify-center gap-2 text-gray-400 font-mono text-sm"
       >
-        Designed and coded with ☕️ by Marcelo Oroquieta
+        {t("footer.credit").replace("{name}", "Marcelo Oroquieta")}
       </div>
     </div>
   </div>
