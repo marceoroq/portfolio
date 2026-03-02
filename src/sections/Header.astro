@@ -62,19 +62,3 @@ const t = useTranslations(currentLanguage);
     </div>
   </nav>
 </header>
-
-<script>
-  import { trackEvent } from "src/lib/utils/analytics";
-
-  document.addEventListener("astro:page-load", () => {
-    const resumeButtons = document.querySelectorAll("[data-track-resume]");
-
-    resumeButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        trackEvent("download_resume", {
-          file_name: "Marcelo-Oroquieta-CV.pdf",
-        });
-      });
-    });
-  });
-</script>
