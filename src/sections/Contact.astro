@@ -21,11 +21,15 @@ const t = useTranslations(currentLanguage);
       {t("contact.badge")}
     </div>
 
-    <p class="text-slate-500 text-center text-lg leading-7 max-w-2xl dark:text-text-muted">
+    <p
+      class="text-slate-500 text-center text-lg leading-7 max-w-2xl dark:text-text-muted"
+    >
       {t("contact.description")}
     </p>
 
-    <div class="flex items-center gap-2 md:gap-4 text-slate-800 dark:text-text-primary">
+    <div
+      class="flex items-center gap-2 md:gap-4 text-slate-800 dark:text-text-primary"
+    >
       <Mail
         class="w-5 h-5 md:w-7 md:h-7 text-slate-500 dark:text-text-muted"
         aria-hidden="true"
@@ -92,30 +96,32 @@ const t = useTranslations(currentLanguage);
 </section>
 
 <script is:inline>
-  const copyButton = document.querySelector("[data-copy-email]");
-  const tooltip = document.querySelector("[data-copy-tooltip]");
+  document.addEventListener("astro:page-load", () => {
+    const copyButton = document.querySelector("[data-copy-email]");
+    const tooltip = document.querySelector("[data-copy-tooltip]");
 
-  const contactEmail = document.querySelector("[data-contact-email]");
-  const email = contactEmail.textContent;
+    const contactEmail = document.querySelector("[data-contact-email]");
+    const email = contactEmail.textContent;
 
-  copyButton.addEventListener("click", () => {
-    navigator.clipboard.writeText(email);
+    copyButton.addEventListener("click", () => {
+      navigator.clipboard.writeText(email);
 
-    tooltip.classList.remove(
-      "opacity-0",
-      "pointer-events-none",
-      "translate-y-1",
-    );
-
-    tooltip.classList.add("opacity-100", "translate-y-0");
-
-    window.setTimeout(() => {
-      tooltip.classList.remove("opacity-100", "translate-y-0");
-      tooltip.classList.add(
+      tooltip.classList.remove(
         "opacity-0",
         "pointer-events-none",
         "translate-y-1",
       );
-    }, 1400);
+
+      tooltip.classList.add("opacity-100", "translate-y-0");
+
+      window.setTimeout(() => {
+        tooltip.classList.remove("opacity-100", "translate-y-0");
+        tooltip.classList.add(
+          "opacity-0",
+          "pointer-events-none",
+          "translate-y-1",
+        );
+      }, 1400);
+    });
   });
 </script>

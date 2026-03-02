@@ -1,19 +1,27 @@
 ---
 import { Moon, Sun } from "@lucide/astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
 <button
-  id="themeToggle"
   aria-label="Toggle theme"
-  class="cursor-pointer w-10 h-10 flex items-center justify-center"
+  data-theme-toggle
+  class:list={[className, "cursor-pointer flex items-center justify-center"]}
 >
-  <Sun class="hidden dark:block text-white hover:text-blue-500" />
-  <Moon class="block dark:hidden text-black hover:text-blue-500" />
+  <Sun class="hidden dark:block text-white hover:text-blue-500 w-full h-full" />
+  <Moon
+    class="block dark:hidden text-black hover:text-blue-500 w-full h-full"
+  />
 </button>
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const themeToggle = document.getElementById("themeToggle");
+    const themeToggles = document.querySelectorAll("[data-theme-toggle]");
 
     const handleToggleClick = () => {
       const element = document.documentElement;
@@ -23,6 +31,8 @@ import { Moon, Sun } from "@lucide/astro";
       localStorage.setItem("theme", isDark ? "dark" : "light");
     };
 
-    themeToggle?.addEventListener("click", handleToggleClick);
+    themeToggles!.forEach((element) => {
+      element.addEventListener("click", handleToggleClick);
+    });
   });
 </script>

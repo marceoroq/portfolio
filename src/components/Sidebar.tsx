@@ -18,7 +18,7 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
   return (
     <>
       <Menu
-        className="md:hidden size-10 text-2xl cursor-pointer"
+        className="md:hidden size-10 text-2xl cursor-pointer text-text-primary"
         onClick={toggleSidebar}
       />
       <nav
@@ -28,7 +28,7 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
       >
         <div className="flex w-full justify-end">
           <X
-            className="h-10 w-10 text-2xl cursor-pointer"
+            className="text-text-primary h-10 w-10 text-2xl cursor-pointer"
             onClick={toggleSidebar}
           />
         </div>
@@ -37,7 +37,7 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className="hover:text-blue-500 text-2xl hover:border-b-4 hover:border-blue-500 pb-2"
+                className="text-text-primary hover:text-blue-500 text-2xl hover:border-b-4 hover:border-blue-500 pb-2"
                 onClick={toggleSidebar}
               >
                 {t(item.labelKey)}
