@@ -65,7 +65,7 @@ export default function TestimonialCarousel({
           {testimonials.map((testimonial, i) => (
             <div
               key={i}
-              className="flex-[0_0_100%] min-w-0 px-10 sm:px-16 py-14 flex flex-col items-center gap-10 text-center"
+              className="flex-[0_0_100%] min-w-0 px-2 sm:px-16 py-6 md:py-14 flex flex-col items-center gap-6 md:gap-10 text-center"
             >
               <div className="flex flex-col items-center gap-6">
                 <Quote className="w-9 h-9 text-slate-200 dark:text-slate-800" />
@@ -142,7 +142,7 @@ export default function TestimonialCarousel({
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      <div className="mt-8 flex items-center justify-center gap-2">
+      <div className="mt-4 md:mt-8 flex items-center justify-center gap-2">
         {testimonials.map((_, index) => (
           <button
             key={index}

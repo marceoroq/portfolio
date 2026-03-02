@@ -135,7 +135,7 @@ export const ui: Record<Language, Record<string, string>> = {
       "I have known Marcelo for many years, and I have no doubt that he is one of the most professional individuals I have ever met. His transparency, precision, and analytical skills when solving problems are truly outstanding. He has an impeccable track record.",
     "testimonials.items.1.title": "Cybersecurity Recruitment Specialist",
     "testimonials.items.2.quote":
-      "Marcelo was amazing to work with! He was extremely responsive, professional, and delivered results quickly. I hired him to help debug three different apps across multiple tech stacks (React, Next.js, Supabase, Vercel, etc.), and he successfully solved every issue. What stood out most was his ability to jump in where I was stuck “vibe coding” and efficiently figure things out.",
+      "Marcelo was amazing to work with! He was extremely responsive, professional, and delivered results quickly. I hired him to help debug three different apps across multiple tech stacks (React, Next.js, Supabase, Vercel, etc.), and he successfully solved every issue.",
     "testimonials.carousel.avatar.alt": "Photo of {name}",
     "testimonials.carousel.companyLogo.alt": "Logo of {company}",
     "testimonials.carousel.prev": "Previous testimonial",
@@ -295,7 +295,7 @@ export const ui: Record<Language, Record<string, string>> = {
     "testimonials.items.1.title":
       "Especialista en reclutamiento de ciberseguridad",
     "testimonials.items.2.quote":
-      "¡Marcelo fue excelente para trabajar! Fue extremadamente receptivo, profesional y entregó resultados rápidamente. Lo contraté para ayudarme a debuggear tres apps distintas en varios stacks (React, Next.js, Supabase, Vercel, etc.) y resolvió cada issue con éxito. Lo que más destacó fue su capacidad de meterse donde yo estaba trabado “vibe coding” y resolverlo con eficiencia.",
+      "¡Marcelo fue excelente para trabajar! Fue extremadamente receptivo, profesional y entregó resultados rápidamente. Lo contraté para ayudarme a debuggear tres apps distintas en varios stacks (React, Next.js, Supabase, Vercel, etc.) y resolvió cada issue con éxito.",
     "testimonials.carousel.avatar.alt": "Foto de {name}",
     "testimonials.carousel.companyLogo.alt": "Logo de {company}",
     "testimonials.carousel.prev": "Testimonio anterior",
