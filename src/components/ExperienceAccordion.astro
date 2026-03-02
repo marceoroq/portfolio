@@ -51,21 +51,21 @@ const { experience } = Astro.props as { experience: CompanyExperience };
               >
                 <button
                   type="button"
-                  class="flex header-summary w-full cursor-pointer items-start gap-6 text-left outline-none px-2 py-1 rounded-md hover:bg-slate-50 dark:hover:bg-bg-secondary"
+                  class="flex header-summary w-full cursor-pointer items-start gap-6 text-left outline-none pl-2 sm:px-2 py-1 rounded-md hover:bg-slate-50 dark:hover:bg-bg-secondary"
                 >
                   <div class="min-w-0 flex-1">
                     <div class="flex justify-between items-start md:items-center gap-2">
-                      <div class="flex flex-1 min-w-0 flex-col md:flex-row md:items-center md:gap-2">
-                        <p class="truncate text-xl font-semibold text-slate-500 group-hover:text-black transition-colors duration-300 group-data-[state=open]:text-black dark:text-text-muted dark:group-hover:text-text-primary dark:group-data-[state=open]:text-text-primary">
+                      <div class="flex flex-1 min-w-0 flex-col md:flex-row md:items-baseline md:gap-2">
+                        <p class="sm:truncate leading-5 sm:leading-normal text-xl font-semibold text-slate-500 group-hover:text-black transition-colors duration-300 group-data-[state=open]:text-black dark:text-text-muted dark:group-hover:text-text-primary dark:group-data-[state=open]:text-text-primary">
                           {role.title}
                         </p>
-                        <p class="shrink-0 whitespace-nowrap text-xs text-slate-400 dark:text-text-muted">
+                        <p class="shrink-0 whitespace-nowrap mt-1 ml-0.25 sm:mt-0 text-xs text-slate-400 dark:text-text-muted">
                           {role.employment ? `${role.employment} · ` : ""}
                           {role.period}
                         </p>
                       </div>
                       <div class="text-slate-400 transition-transform duration-500 group-data-[state=open]:-scale-100 dark:text-text-muted">
-                        <ChevronDown class="size-5" />
+                        <ChevronDown class="size-6" />
                       </div>
                     </div>
 

@@ -282,7 +282,7 @@ export const ui: Record<Language, Record<string, string>> = {
       "Construí la interfaz utilizando Tailwind CSS y componentes de Shadcn UI fuertemente customizados para cumplir requisitos específicos de diseño.",
     "experience.freelance.roles.5.title": "Desarrollador Web WordPress",
     "experience.freelance.roles.5.bullets.0":
-      "Mantuve el sitio web de una psicóloga construido en WordPress, asegurando la estabilidad de la plataforma.",
+      "Mantuve el sitio web de un psicólogo construido en WordPress, asegurando la estabilidad de la plataforma.",
     "experience.freelance.roles.5.bullets.1":
       "Implementé actualizaciones necesarias y corregí issues existentes para mejorar la funcionalidad general del sitio.",
     "skills.title": "Habilidades",
@@ -291,7 +291,7 @@ export const ui: Record<Language, Record<string, string>> = {
       "Tuve la oportunidad de trabajar con Marcelo y puedo destacar su alto nivel de responsabilidad y compromiso en cada proyecto. Se caracteriza por su proactividad y por asumir nuevos desafíos, siempre aportando valor al equipo.",
     "testimonials.items.0.title": "Especialista en Operaciones",
     "testimonials.items.1.quote":
-      "Conozco a Marcelo desde hace muchos años y no tengo dudas de que es una de las personas más profesionales que he conocido. Su transparencia, precisión y capacidad analítica al resolver problemas son realmente destacables. Tiene un historial impecable.",
+      "Conozco a Marcelo desde hace muchos años y no tengo dudas de que es uno de los profesionales más serios que he conocido. Su transparencia, precisión y capacidad analítica al momento de resolver problemas es algo sobresaliente. Trayectoria intachable.",
     "testimonials.items.1.title":
       "Especialista en reclutamiento de ciberseguridad",
     "testimonials.items.2.quote":
