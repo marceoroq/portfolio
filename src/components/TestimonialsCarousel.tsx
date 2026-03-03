@@ -11,10 +11,7 @@ interface CarouselProps {
   currentLanguage: Language;
 }
 
-export default function TestimonialCarousel({
-  testimonials,
-  currentLanguage,
-}: CarouselProps) {
+export default function TestimonialCarousel({ testimonials, currentLanguage }: CarouselProps) {
   const t = useTranslations(currentLanguage);
   // 1. Creamos la referencia para el contenedor del DOM y el estado para la API de Embla
   const emblaNodeRef = useRef<HTMLDivElement>(null);
@@ -37,10 +34,7 @@ export default function TestimonialCarousel({
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-  const scrollTo = useCallback(
-    (index: number) => emblaApi?.scrollTo(index),
-    [emblaApi],
-  );
+  const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -81,32 +75,23 @@ export default function TestimonialCarousel({
                   <div className="flex items-center gap-3">
                     <img
                       src={testimonial.avatarSrc}
-                      alt={t("testimonials.carousel.avatar.alt").replace(
-                        "{name}",
-                        testimonial.name,
-                      )}
+                      alt={t("testimonials.carousel.avatar.alt").replace("{name}", testimonial.name)}
                       width="56"
                       height="56"
                       loading="lazy"
                       className="w-14 h-14 rounded-full object-cover bg-slate-100 dark:bg-bg-tertiary"
                     />
                     <div className="text-left leading-tight">
-                      <div className="font-semibold text-slate-800 dark:text-text-primary">
-                        {testimonial.name}
-                      </div>
+                      <div className="font-semibold text-slate-800 dark:text-text-primary">{testimonial.name}</div>
                       <div className="text-xs tracking-wide text-slate-400 uppercase dark:text-text-muted">
-                        {testimonial.title} <span className="mx-1">@</span>{" "}
-                        {testimonial.company}
+                        {testimonial.title} <span className="mx-1">@</span> {testimonial.company}
                       </div>
                     </div>
                   </div>
                   {testimonial.companyLogo ? (
                     <img
                       src={testimonial.companyLogo}
-                      alt={t("testimonials.carousel.companyLogo.alt").replace(
-                        "{company}",
-                        testimonial.company,
-                      )}
+                      alt={t("testimonials.carousel.companyLogo.alt").replace("{company}", testimonial.company)}
                       width="32"
                       height="32"
                       loading="lazy"
@@ -148,10 +133,7 @@ export default function TestimonialCarousel({
             key={index}
             onClick={() => scrollTo(index)}
             type="button"
-            aria-label={t("testimonials.carousel.goto").replace(
-              "{n}",
-              String(index + 1),
-            )}
+            aria-label={t("testimonials.carousel.goto").replace("{n}", String(index + 1))}
             className={`h-3 w-3 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
               index === selectedIndex
                 ? "bg-slate-500 scale-125 dark:bg-slate-300"

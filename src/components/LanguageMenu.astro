@@ -11,9 +11,7 @@ const currentLanguage = Astro.currentLocale || "en";
   >
     <Languages class="w-5 h-5" />
     <span class="uppercase">{currentLanguage}</span>
-    <ChevronDown
-      class="w-4 h-4 text-slate-500 transition-transform group-open:rotate-180"
-    />
+    <ChevronDown class="w-4 h-4 text-slate-500 transition-transform group-open:rotate-180" />
   </summary>
 
   <div
@@ -47,9 +45,7 @@ const currentLanguage = Astro.currentLocale || "en";
 
 <script>
   function setupLanguageMenu() {
-    const menus = document.querySelectorAll<HTMLDetailsElement>(
-      "[data-language-menu]",
-    );
+    const menus = document.querySelectorAll<HTMLDetailsElement>("[data-language-menu]");
 
     const closeMenus = () => menus.forEach((m) => m.removeAttribute("open"));
 

@@ -13,10 +13,7 @@ const currentLanguage: Language = (Astro.currentLocale || "en") as Language;
 const t = useTranslations(currentLanguage);
 ---
 
-<header
-  id="header"
-  class="fixed top-0 left-0 right-0 z-20 header-scroll-effect"
->
+<header id="header" class="fixed top-0 left-0 right-0 z-20 header-scroll-effect">
   <nav
     class="flex py-2 md:py-4 px-4 lg:px-0 justify-between md:justify-center lg:justify-between items-center gap-2 lg:gap-4 font-mono w-full lg:pr-8 lg:before:content-[''] lg:before:border-b lg:before:border-border-primary lg:before:w-full hide-line-effect"
   >
@@ -37,9 +34,7 @@ const t = useTranslations(currentLanguage);
 
     <span class="hidden md:block border-l h-6 border-border-primary"></span>
 
-    <div
-      class="hidden md:flex justify-end items-center gap-4 py-4 text-text-primary"
-    >
+    <div class="hidden md:flex justify-end items-center gap-4 py-4 text-text-primary">
       <ThemeIcon class="hidden md:block size-6" />
       <LanguageMenu />
     </div>
@@ -55,9 +50,7 @@ const t = useTranslations(currentLanguage);
     </a>
 
     <div class="flex items-center gap-4">
-      <ThemeIcon
-        class="md:hidden hover:text-blue-500 cursor-pointer stroke-2 size-8"
-      />
+      <ThemeIcon class="md:hidden hover:text-blue-500 cursor-pointer stroke-2 size-8" />
       <Sidebar currentLanguage={currentLanguage} client:visible />
     </div>
   </nav>
