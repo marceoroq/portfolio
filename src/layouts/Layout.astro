@@ -60,10 +60,6 @@ const t = useTranslations(currentLanguage);
   </head>
   <body>
     <slot />
-    <Chatbot
-      client:load
-      transition:persist={`chatbot-${currentLanguage}`}
-      currentLanguage={currentLanguage}
-    />
+    <Chatbot client:load transition:persist={`chatbot-${currentLanguage}`} currentLanguage={currentLanguage} />
   </body>
 </html>

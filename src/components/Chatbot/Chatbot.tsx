@@ -74,19 +74,12 @@ export default function Chatbot({ currentLanguage }: ChatbotProps) {
   return (
     <>
       {/* Trigger Button */}
-      <ChatButton
-        triggerRef={triggerRef}
-        toggleChat={toggleChat}
-        isOpen={isOpen}
-        triggerText={t("chatbot.trigger")}
-      />
+      <ChatButton triggerRef={triggerRef} toggleChat={toggleChat} isOpen={isOpen} triggerText={t("chatbot.trigger")} />
 
       {/* Chat Window Overlay/Card */}
       <div
         className={`fixed z-50 transition-all duration-300 ease-in-out ${
-          isOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 translate-y-4 pointer-events-none"
+          isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
         } ${
           // Mobile: Full screen
           "inset-0 md:inset-auto md:bottom-10 md:right-10 md:w-96 md:h-[500px] md:rounded-2xl"
@@ -100,9 +93,7 @@ export default function Chatbot({ currentLanguage }: ChatbotProps) {
           <div className="flex items-center justify-between p-4 border-b border-slate-500/30 bg-bg-secondary/50">
             <div className="flex items-center gap-2">
               <BotMessageSquare className="w-5 h-5 text-text-primary" />
-              <h2 className="font-mono font-bold text-text-primary">
-                {t("chatbot.title")}
-              </h2>
+              <h2 className="font-mono font-bold text-text-primary">{t("chatbot.title")}</h2>
             </div>
             <button
               onClick={toggleChat}
@@ -123,12 +114,7 @@ export default function Chatbot({ currentLanguage }: ChatbotProps) {
             )}
 
             {messages.map((msg, idx) => (
-              <div
-                key={idx}
-                className={`flex font-mono ${
-                  msg.role === "user" ? "justify-end" : "justify-start"
-                }`}
-              >
+              <div key={idx} className={`flex font-mono ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                 <div
                   className={`max-w-[80%] p-3 rounded-2xl text-sm ${
                     msg.role === "user"
@@ -145,9 +131,7 @@ export default function Chatbot({ currentLanguage }: ChatbotProps) {
               <div className="flex justify-start">
                 <div className="text-text-primary flex items-center gap-2">
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span className="font-mono text-sm opacity-70">
-                    {t("chatbot.waiting")}
-                  </span>
+                  <span className="font-mono text-sm opacity-70">{t("chatbot.waiting")}</span>
                 </div>
               </div>
             )}
@@ -156,10 +140,7 @@ export default function Chatbot({ currentLanguage }: ChatbotProps) {
           </div>
 
           {/* Input Area */}
-          <form
-            onSubmit={handleSendMessage}
-            className="p-4 border-t border-slate-500/30 bg-bg-secondary/30"
-          >
+          <form onSubmit={handleSendMessage} className="p-4 border-t border-slate-500/30 bg-bg-secondary/30">
             <div className="relative font-mono flex items-center">
               <input
                 ref={inputRef}
