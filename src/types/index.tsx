@@ -26,3 +26,8 @@ export type CompanyExperience = {
 };
 
 export type Language = keyof typeof languages;
+
+export interface Message {
+  role: "user" | "ai";
+  text: string;
+}

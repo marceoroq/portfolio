@@ -8,7 +8,7 @@ interface ChatButtonProps {
   triggerText: string;
 }
 
-export default function ChatButton({ triggerRef, toggleChat, isOpen, triggerText }: ChatButtonProps) {
+export function ChatButton({ triggerRef, toggleChat, isOpen, triggerText }: ChatButtonProps) {
   return (
     <button
       ref={triggerRef}

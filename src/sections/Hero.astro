@@ -3,9 +3,11 @@ import { Image } from "astro:assets";
 import { Github, Linkedin, Send, Bot } from "@lucide/astro";
 import { CONTACT_EMAIL } from "astro:env/server";
 import { useTranslations } from "src/lib/i18n/utils";
+import Chatbot from "src/components/Chatbot/Chatbot";
+import type { Language } from "src/types";
 
-const currentLanguage = Astro.currentLocale || "en";
-const t = useTranslations(currentLanguage as "en" | "es");
+const currentLanguage = (Astro.currentLocale || "en") as Language;
+const t = useTranslations(currentLanguage);
 
 const name = "Marcelo Oroquieta";
 ---
@@ -82,4 +84,6 @@ const name = "Marcelo Oroquieta";
       </a>
     </div>
   </div>
+
+  <Chatbot client:load transition:persist={`chatbot-${currentLanguage}`} currentLanguage={currentLanguage} />
 </section>
