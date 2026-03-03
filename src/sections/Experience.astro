@@ -1,13 +1,5 @@
 ---
-import {
-  Code,
-  Braces,
-  FileBraces,
-  Monitor,
-  Headset,
-  Database,
-  CircleDollarSign,
-} from "@lucide/astro";
+import { Code, Braces, FileBraces, Monitor, Headset, Database, CircleDollarSign } from "@lucide/astro";
 
 import ExperienceAccordion from "src/components/ExperienceAccordion.astro";
 import { useTranslations } from "src/lib/i18n/utils";
@@ -33,15 +25,7 @@ const globantExperience: CompanyExperience = {
         t("experience.globant.roles.0.bullets.2"),
         t("experience.globant.roles.0.bullets.3"),
       ],
-      skills: [
-        "React",
-        "TypeScript",
-        "Three.js",
-        "Globe.gl",
-        "Zod",
-        "Salesforce APIs",
-        "REST",
-      ],
+      skills: ["React", "TypeScript", "Three.js", "Globe.gl", "Zod", "Salesforce APIs", "REST"],
     },
     {
       title: t("experience.globant.roles.1.title"),
@@ -76,15 +60,7 @@ const globantExperience: CompanyExperience = {
         t("experience.globant.roles.2.bullets.2"),
         t("experience.globant.roles.2.bullets.3"),
       ],
-      skills: [
-        "React",
-        "Atomic Design",
-        "JavaScript",
-        "HTML",
-        "CSS",
-        "Git",
-        "Frontend Architecture",
-      ],
+      skills: ["React", "Atomic Design", "JavaScript", "HTML", "CSS", "Git", "Frontend Architecture"],
     },
     {
       title: t("experience.globant.roles.3.title"),
@@ -97,14 +73,7 @@ const globantExperience: CompanyExperience = {
         t("experience.globant.roles.3.bullets.2"),
         t("experience.globant.roles.3.bullets.3"),
       ],
-      skills: [
-        "Technical Support",
-        "Windows / macOS / Linux",
-        "MDT",
-        "JAMF",
-        "AI Initiatives",
-        "Asset Management",
-      ],
+      skills: ["Technical Support", "Windows / macOS / Linux", "MDT", "JAMF", "AI Initiatives", "Asset Management"],
     },
     {
       title: t("experience.globant.roles.4.title"),
@@ -117,14 +86,7 @@ const globantExperience: CompanyExperience = {
         t("experience.globant.roles.4.bullets.2"),
         t("experience.globant.roles.4.bullets.3"),
       ],
-      skills: [
-        "IT Support",
-        "Hardware Maintenance",
-        "Virtual Machines",
-        "VoIP",
-        "Documentation",
-        "Troubleshooting",
-      ],
+      skills: ["IT Support", "Hardware Maintenance", "Virtual Machines", "VoIP", "Documentation", "Troubleshooting"],
     },
   ],
 };
@@ -143,23 +105,13 @@ const freelanceExperiences: CompanyExperience = {
         t("experience.freelance.roles.0.bullets.1"),
         t("experience.freelance.roles.0.bullets.2"),
       ],
-      skills: [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "SendGrid",
-        "Tailwind CSS",
-        "Pixel-Perfect UI",
-      ],
+      skills: ["Next.js", "React", "TypeScript", "SendGrid", "Tailwind CSS", "Pixel-Perfect UI"],
     },
     {
       title: t("experience.freelance.roles.1.title"),
       period: "09.2025",
       positionIcon: Braces,
-      bullets: [
-        t("experience.freelance.roles.1.bullets.0"),
-        t("experience.freelance.roles.1.bullets.1"),
-      ],
+      bullets: [t("experience.freelance.roles.1.bullets.0"), t("experience.freelance.roles.1.bullets.1")],
       skills: ["Next.js", "React", "Tailwind CSS", "Shadcn UI", "Prompt-kit"],
     },
     {
@@ -182,32 +134,20 @@ const freelanceExperiences: CompanyExperience = {
         t("experience.freelance.roles.3.bullets.1"),
         t("experience.freelance.roles.3.bullets.2"),
       ],
-      skills: [
-        "Next.js",
-        "React",
-        "Supabase",
-        "Refactoring",
-        "Troubleshooting",
-      ],
+      skills: ["Next.js", "React", "Supabase", "Refactoring", "Troubleshooting"],
     },
     {
       title: t("experience.freelance.roles.4.title"),
       period: "03.2025 - 04.2025",
       positionIcon: CircleDollarSign,
-      bullets: [
-        t("experience.freelance.roles.4.bullets.0"),
-        t("experience.freelance.roles.4.bullets.1"),
-      ],
+      bullets: [t("experience.freelance.roles.4.bullets.0"), t("experience.freelance.roles.4.bullets.1")],
       skills: ["Tailwind CSS", "Shadcn UI", "Figma", "Web3"],
     },
     {
       title: t("experience.freelance.roles.5.title"),
       period: "02.2025",
       positionIcon: Monitor,
-      bullets: [
-        t("experience.freelance.roles.5.bullets.0"),
-        t("experience.freelance.roles.5.bullets.1"),
-      ],
+      bullets: [t("experience.freelance.roles.5.bullets.0"), t("experience.freelance.roles.5.bullets.1")],
       skills: ["WordPress", "Web Maintenance", "Troubleshooting"],
     },
   ],
@@ -215,16 +155,12 @@ const freelanceExperiences: CompanyExperience = {
 ---
 
 <section id="experience" class="w-full flex justify-center py-12 md:py-18">
-  <div
-    class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-10 md:gap-16"
-  >
-    <h2
-      class="text-4xl md:text-5xl font-bold text-slate-600 dark:text-text-primary"
-    >
+  <div class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-10 md:gap-16">
+    <h2 class="text-4xl md:text-5xl font-bold text-slate-600 dark:text-text-primary">
       {t("experience.title")}
     </h2>
 
-    <ExperienceAccordion experience={globantExperience} client:visible />
-    <ExperienceAccordion experience={freelanceExperiences} client:visible />
+    <ExperienceAccordion experience={globantExperience} />
+    <ExperienceAccordion experience={freelanceExperiences} />
   </div>
 </section>

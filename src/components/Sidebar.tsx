@@ -17,20 +17,14 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
 
   return (
     <>
-      <Menu
-        className="md:hidden size-10 text-2xl cursor-pointer text-text-primary"
-        onClick={toggleSidebar}
-      />
+      <Menu className="md:hidden size-10 text-2xl cursor-pointer text-text-primary" onClick={toggleSidebar} />
       <nav
         className={`flex flex-col justify-center items-center absolute transform transition-transform duration-500 ease-in-out w-full top-0 right-0 bg-white p-4 md:hidden font-mono dark:bg-bg-primary dark:text-text-primary ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex w-full justify-end">
-          <X
-            className="text-text-primary h-10 w-10 text-2xl cursor-pointer"
-            onClick={toggleSidebar}
-          />
+          <X className="text-text-primary h-10 w-10 text-2xl cursor-pointer" onClick={toggleSidebar} />
         </div>
         <ul className="flex flex-col justify-center items-center gap-12 pb-8">
           {navItems.map((item) => (
@@ -80,11 +74,7 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
         <div className="px-14 border-b border-slate-200 w-1/2 dark:border-border-secondary"></div>
 
         <div class="flex gap-10 font-mono my-10">
-          <a
-            href="https://github.com/marceoroq"
-            target="_blank"
-            aria-label="Go to Marcelo Oroquieta's GitHub profile"
-          >
+          <a href="https://github.com/marceoroq" target="_blank" aria-label="Go to Marcelo Oroquieta's GitHub profile">
             <div class="text-slate-500 flex gap-2 hover:text-blue-500 dark:text-text-muted">
               <Github class="w-8 h-8" />
             </div>

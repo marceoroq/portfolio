@@ -10,22 +10,15 @@ const t = useTranslations(currentLanguage as "en" | "es");
 const name = "Marcelo Oroquieta";
 ---
 
-<section
-  id="hero"
-  class="h-screen min-h-[900px] sm:max-h-screen flex flex-col px-4 lg:px-16"
->
+<section id="hero" class="h-screen min-h-[900px] sm:max-h-screen flex flex-col px-4 lg:px-16">
   <div
     class="flex grow lg:before:content-[''] lg:before:border-l lg:before:border-slate-300 dark:lg:before:border-slate-700 lg:before:-translate-x-3 hide-line-effect"
   >
-    <div
-      class="flex flex-col-reverse lg:flex-row w-full justify-center items-center font-mono gap-18 md:gap-24"
-    >
+    <div class="flex flex-col-reverse lg:flex-row w-full justify-center items-center font-mono gap-18 md:gap-24">
       <div class="flex flex-col max-w-lg gap-3">
         <div class="flex flex-col gap-1">
           <h2 class="text-gray-400 text-xl">{t("hero.position")}</h2>
-          <h1
-            class="text-text-primary font-sans text-5xl font-semibold sm:whitespace-nowrap"
-          >
+          <h1 class="text-text-primary font-sans text-5xl font-semibold sm:whitespace-nowrap">
             {name}
           </h1>
           <p class="text-slate-500 leading-6">
@@ -34,36 +27,28 @@ const name = "Marcelo Oroquieta";
           </p>
         </div>
 
-        <div
-          class="flex gap-4 flex-wrap bg-white dark:bg-black w-full justify-center md:w-fit"
-        >
-          <div
-            class="flex items-center gap-2 text-emerald-500 dark:text-emerald-400 tracking-tight"
-          >
+        <div class="flex gap-4 flex-wrap bg-white dark:bg-black w-full justify-center md:w-fit">
+          <div class="flex items-center gap-2 text-emerald-500 dark:text-emerald-400 tracking-tight">
             <div class="relative w-2.5 h-2.5">
               <span
                 class="absolute w-2.5 h-2.5 rounded-full bg-emerald-400 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"
                 shadow-[0_0_10px_#5EEA6F]></span>
-              <span
-                class="relative flex h-2.5 w-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400"
-              ></span>
+              <span class="relative flex h-2.5 w-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
             </div>
             {t("hero.available")}
           </div>
-          <a href={`mailto:${CONTACT_EMAIL}`} target="_blank">
-            <button
-              class="bg-slate-700 text-white px-4 py-2 rounded-full flex gap-2 items-center shrink-0 hover:bg-blue-500 cursor-pointer active:transform active:scale-95"
-            >
-              <Send class="w-4.5 h-4.5" />
-              {t("hero.button")}
-            </button>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            target="_blank"
+            class="bg-slate-700 text-white px-4 py-2 rounded-full flex gap-2 items-center shrink-0 hover:bg-blue-500 cursor-pointer active:transform active:scale-95"
+          >
+            <Send class="w-4.5 h-4.5" />
+            {t("hero.button")}
           </a>
         </div>
       </div>
 
-      <div
-        class="relative w-60 h-60 md:w-80 md:h-80 lg:w-110 lg:h-110 group rounded-full"
-      >
+      <div class="relative w-60 h-60 md:w-80 md:h-80 lg:w-110 lg:h-110 group rounded-full">
         <div
           class="absolute top-5 md:top-7 lg:top-10 left-1/2 -translate-x-1/2 w-60 h-60 md:w-80 md:h-80 lg:w-100 lg:h-100 rounded-full bg-gray-200 dark:bg-slate-800 group-hover:bg-slate-100 dark:group-hover:bg-slate-900 transition-all duration-100"
         >
@@ -83,9 +68,7 @@ const name = "Marcelo Oroquieta";
     </div>
   </div>
 
-  <div
-    class="hidden md:block absolute bottom-0 left-10 bg-white dark:bg-black py-6"
-  >
+  <div class="hidden md:block absolute bottom-0 left-10 bg-white dark:bg-black py-6">
     <div class="flex flex-col gap-2.5 font-mono">
       <a href="https://github.com/marceoroq" target="_blank">
         <div class="text-text-muted flex gap-2 hover:text-blue-500">

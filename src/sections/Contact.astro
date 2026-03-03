@@ -8,40 +8,25 @@ const currentLanguage: Language = (Astro.currentLocale || "en") as Language;
 const t = useTranslations(currentLanguage);
 ---
 
-<section
-  id="contact"
-  class="w-full flex justify-center bg-slate-200 dark:bg-bg-secondary py-9 md:py-18"
->
-  <div
-    class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-8 font-mono"
-  >
+<section id="contact" class="w-full flex justify-center bg-slate-200 dark:bg-bg-secondary py-9 md:py-18">
+  <div class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-8 font-mono">
     <div
       class="px-3 py-1 rounded-full bg-slate-300/60 text-slate-600 text-sm dark:bg-bg-tertiary/60 dark:text-text-secondary"
     >
       {t("contact.badge")}
     </div>
 
-    <p
-      class="text-slate-500 text-center text-lg leading-7 max-w-2xl dark:text-text-muted"
-    >
+    <p class="text-slate-500 text-center text-lg leading-7 max-w-2xl dark:text-text-muted">
       {t("contact.description")}
     </p>
 
-    <div
-      class="flex items-center gap-2 md:gap-4 text-slate-800 dark:text-text-primary"
-    >
-      <Mail
-        class="w-5 h-5 md:w-7 md:h-7 text-slate-500 dark:text-text-muted"
-        aria-hidden="true"
-      />
+    <div class="flex items-center gap-2 md:gap-4 text-slate-800 dark:text-text-primary">
+      <Mail class="w-5 h-5 md:w-7 md:h-7 text-slate-500 dark:text-text-muted" aria-hidden="true" />
 
       <a
         href={`mailto:${CONTACT_EMAIL}`}
         class="text-lg sm:text-xl md:text-3xl font-bold hover:underline underline-offset-6 decoration-slate-400 dark:decoration-border-primary"
-        aria-label={t("contact.email.ariaLabel").replace(
-          "{email}",
-          CONTACT_EMAIL,
-        )}
+        aria-label={t("contact.email.ariaLabel").replace("{email}", CONTACT_EMAIL)}
         data-contact-email
       >
         {CONTACT_EMAIL}
@@ -106,21 +91,13 @@ const t = useTranslations(currentLanguage);
     copyButton.addEventListener("click", () => {
       navigator.clipboard.writeText(email);
 
-      tooltip.classList.remove(
-        "opacity-0",
-        "pointer-events-none",
-        "translate-y-1",
-      );
+      tooltip.classList.remove("opacity-0", "pointer-events-none", "translate-y-1");
 
       tooltip.classList.add("opacity-100", "translate-y-0");
 
       window.setTimeout(() => {
         tooltip.classList.remove("opacity-100", "translate-y-0");
-        tooltip.classList.add(
-          "opacity-0",
-          "pointer-events-none",
-          "translate-y-1",
-        );
+        tooltip.classList.add("opacity-0", "pointer-events-none", "translate-y-1");
       }, 1400);
     });
   });

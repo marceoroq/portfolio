@@ -34,22 +34,11 @@ const testimonials: Testimonial[] = [
 ];
 ---
 
-<section
-  id="testimonials"
-  class="w-full flex justify-center bg-white dark:bg-bg-primary py-12 md:py-18"
->
-  <div
-    class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-6 md:gap-12"
-  >
-    <h2
-      class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight text-center dark:text-text-primary"
-    >
+<section id="testimonials" class="w-full flex justify-center bg-white dark:bg-bg-primary py-12 md:py-18">
+  <div class="w-full flex flex-col items-center max-w-5xl px-4 md:px-8 lg:px-0 gap-6 md:gap-12">
+    <h2 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight text-center dark:text-text-primary">
       {t("testimonials.title")}
     </h2>
-    <TestimonialCarousel
-      testimonials={testimonials}
-      currentLanguage={currentLanguage}
-      client:visible
-    />
+    <TestimonialCarousel testimonials={testimonials} currentLanguage={currentLanguage} client:visible />
   </div>
 </section>

@@ -35,20 +35,12 @@ const { experience } = Astro.props as { experience: CompanyExperience };
               <div class="grid size-9 place-items-center rounded-sm border-2 border-slate-200 bg-white text-slate-700 dark:border-border-primary dark:bg-bg-secondary dark:text-text-secondary">
                 <PositionIcon class="size-4 text-slate-400 stroke-3 dark:text-text-muted" />
               </div>
-              <div
-                class:list={[
-                  "w-px flex-1 bg-slate-200 dark:bg-border-primary",
-                  isLast && "opacity-0",
-                ]}
-              />
+              <div class:list={["w-px flex-1 bg-slate-200 dark:bg-border-primary", isLast && "opacity-0"]} />
             </div>
 
             {/* --- MAIN CONTAINER --- */}
             <div class="flex w-full flex-col gap-2 overflow-hidden mb-2">
-              <div
-                class="group w-full"
-                data-state={isFirst ? "open" : "closed"}
-              >
+              <div class="group w-full" data-state={isFirst ? "open" : "closed"}>
                 <button
                   type="button"
                   class="flex header-summary w-full cursor-pointer items-start gap-6 text-left outline-none pl-2 sm:px-2 py-1 rounded-md hover:bg-slate-50 dark:hover:bg-bg-secondary"

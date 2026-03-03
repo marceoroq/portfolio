@@ -73,8 +73,7 @@ export const ui: Record<Language, Record<string, string>> = {
     "experience.globant.roles.3.title": "Service Desk Analyst SSr Adv",
     "experience.globant.roles.3.bullets.0":
       "Provided local and global remote technical support for Windows, Linux (Ubuntu), macOS, and mobile devices.",
-    "experience.globant.roles.3.bullets.1":
-      "Deployed desktop and laptop equipment efficiently using MDT and JAMF.",
+    "experience.globant.roles.3.bullets.1": "Deployed desktop and laptop equipment efficiently using MDT and JAMF.",
     "experience.globant.roles.3.bullets.2":
       "Initiated and developed an internal project utilizing artificial intelligence to improve service area operations.",
     "experience.globant.roles.3.bullets.3":
@@ -115,8 +114,7 @@ export const ui: Record<Language, Record<string, string>> = {
       "Resolved UI bugs and complex Supabase integration issues that the initial AI generation failed to implement correctly.",
     "experience.freelance.roles.3.bullets.2":
       "Restructured the codebase to restore functionality, improve maintainability, and ensure a stable connection with the Supabase backend.",
-    "experience.freelance.roles.4.title":
-      "Frontend Development for Web3 Project",
+    "experience.freelance.roles.4.title": "Frontend Development for Web3 Project",
     "experience.freelance.roles.4.bullets.0":
       "Implemented responsive screens and reusable UI components based on Figma designs for a Web3 platform.",
     "experience.freelance.roles.4.bullets.1":
@@ -151,8 +149,7 @@ export const ui: Record<Language, Record<string, string>> = {
     "contact.github.ariaLabel": "Visit GitHub profile",
     "contact.linkedin.ariaLabel": "Visit LinkedIn profile",
     "footer.ariaLabel": "Site footer",
-    "footer.description":
-      "Frontend Developer passionate about creating innovative digital solutions",
+    "footer.description": "Frontend Developer passionate about creating innovative digital solutions",
     "footer.location": "Remote | Mendoza, Argentina",
     "footer.available": "Available for Work",
     "footer.linksTitle": "Quick Links",
@@ -282,8 +279,7 @@ export const ui: Record<Language, Record<string, string>> = {
       "Resolví bugs de UI e issues complejos de integración con Supabase que la generación inicial con IA no implementó correctamente.",
     "experience.freelance.roles.3.bullets.2":
       "Reestructuré el codebase para restaurar funcionalidad, mejorar mantenibilidad y asegurar una conexión estable con el backend de Supabase.",
-    "experience.freelance.roles.4.title":
-      "Desarrollo Frontend para proyecto Web3",
+    "experience.freelance.roles.4.title": "Desarrollo Frontend para proyecto Web3",
     "experience.freelance.roles.4.bullets.0":
       "Implementé pantallas responsive y componentes de UI reutilizables basados en diseños de Figma para una plataforma Web3.",
     "experience.freelance.roles.4.bullets.1":
@@ -300,8 +296,7 @@ export const ui: Record<Language, Record<string, string>> = {
     "testimonials.items.0.title": "Especialista en Operaciones",
     "testimonials.items.1.quote":
       "Conozco a Marcelo desde hace muchos años y no tengo dudas de que es uno de los profesionales más serios que he conocido. Su transparencia, precisión y capacidad analítica al momento de resolver problemas es algo sobresaliente. Trayectoria intachable.",
-    "testimonials.items.1.title":
-      "Especialista en reclutamiento de ciberseguridad",
+    "testimonials.items.1.title": "Especialista en reclutamiento de ciberseguridad",
     "testimonials.items.2.quote":
       "¡Marcelo fue excelente para trabajar! Fue extremadamente receptivo, profesional y entregó resultados rápidamente. Lo contraté para ayudarme a debuggear tres apps distintas en varios stacks (React, Next.js, Supabase, Vercel, etc.) y resolvió cada issue con éxito.",
     "testimonials.carousel.avatar.alt": "Foto de {name}",
@@ -319,8 +314,7 @@ export const ui: Record<Language, Record<string, string>> = {
     "contact.github.ariaLabel": "Visitar perfil de GitHub",
     "contact.linkedin.ariaLabel": "Visitar perfil de LinkedIn",
     "footer.ariaLabel": "Pie de página",
-    "footer.description":
-      "Desarrollador Frontend apasionado por crear soluciones digitales innovadoras",
+    "footer.description": "Desarrollador Frontend apasionado por crear soluciones digitales innovadoras",
     "footer.location": "Remoto | Mendoza, Argentina",
     "footer.available": "Disponible para trabajar",
     "footer.linksTitle": "Enlaces rápidos",
