@@ -18,8 +18,7 @@
 }
 
 :root {
-  color-scheme: dark light;
-
+  color-scheme: light;
   --theme-bg-primary: var(--color-slate-50);
   --theme-bg-secondary: var(--color-slate-100);
   --theme-bg-tertiary: var(--color-gray-200);
@@ -32,6 +31,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --theme-bg-primary: var(--color-slate-950);
   --theme-bg-secondary: var(--color-slate-900);
   --theme-bg-tertiary: var(--color-gray-800);

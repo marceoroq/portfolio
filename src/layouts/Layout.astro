@@ -4,13 +4,16 @@ import "@fontsource/geist-sans/500.css";
 import "@fontsource/geist-sans/700.css";
 import "@fontsource-variable/geist-mono";
 import "../styles/global.css";
+
 import ClientRouter from "astro/components/ClientRouter.astro";
 import Analytics from "@vercel/analytics/astro";
 
 import { useTranslations } from "src/lib/i18n/utils";
+import Chatbot from "src/components/Chatbot/Chatbot";
+import type { Language } from "src/types";
 
-const currentLanguage = Astro.currentLocale || "en";
-const t = useTranslations(currentLanguage as "en" | "es");
+const currentLanguage = (Astro.currentLocale || "en") as Language;
+const t = useTranslations(currentLanguage);
 ---
 
 <!doctype html>
@@ -60,5 +63,10 @@ const t = useTranslations(currentLanguage as "en" | "es");
   </head>
   <body>
     <slot />
+    <Chatbot
+      client:load
+      transition:persist={`chatbot-${currentLanguage}`}
+      currentLanguage={currentLanguage}
+    />
   </body>
 </html>

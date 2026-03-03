@@ -166,6 +166,14 @@ export const ui: Record<Language, Record<string, string>> = {
     "footer.nav.contact": "Contact",
     "footer.nav.contact.ariaLabel": "Go to contact section",
     "footer.credit": "Designed and coded with ☕️ by {name}",
+    "chatbot.trigger": "Ask My AI",
+    "chatbot.title": "Chat with my AI",
+    "chatbot.placeholder": "Ask me anything...",
+    "chatbot.send": "Send",
+    "chatbot.close": "Close chat",
+    "chatbot.waiting": "Thinking...",
+    "chatbot.demo":
+      "Thanks for your message! This is a demo response. The AI integration is coming soon :)",
   },
   es: {
     "head.title": "Marcelo Oroquieta - Portafolio",
@@ -326,5 +334,13 @@ export const ui: Record<Language, Record<string, string>> = {
     "footer.nav.contact": "Contacto",
     "footer.nav.contact.ariaLabel": "Ir a la sección contacto",
     "footer.credit": "Diseñado y desarrollado con ☕️ por {name}",
+    "chatbot.trigger": "Pregúntale a mi IA",
+    "chatbot.title": "Chatea con mi IA",
+    "chatbot.placeholder": "Pregúntame lo que quieras...",
+    "chatbot.send": "Enviar",
+    "chatbot.close": "Cerrar chat",
+    "chatbot.waiting": "Pensando...",
+    "chatbot.demo":
+      "¡Gracias por tu mensaje! Esta es una respuesta de demostración. La integración con la IA está en camino :)",
   },
 } as const;
