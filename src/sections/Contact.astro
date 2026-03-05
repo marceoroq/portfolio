@@ -21,33 +21,35 @@ const t = useTranslations(currentLanguage);
     </p>
 
     <div class="flex items-center gap-2 md:gap-4 text-slate-800 dark:text-text-primary">
-      <Mail class="w-5 h-5 md:w-7 md:h-7 text-slate-500 dark:text-text-muted" aria-hidden="true" />
+      <!-- <Mail class="w-5 h-5 md:w-7 md:h-7 text-slate-500 dark:text-text-muted" aria-hidden="true" /> -->
 
-      <a
-        href={`mailto:${CONTACT_EMAIL}`}
-        class="text-lg sm:text-xl md:text-3xl font-bold hover:underline underline-offset-6 decoration-slate-400 dark:decoration-border-primary"
-        aria-label={t("contact.email.ariaLabel").replace("{email}", CONTACT_EMAIL)}
-        data-contact-email
-      >
-        {CONTACT_EMAIL}
-      </a>
+      <div class="flex items-center relative">
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          class="text-xl sm:text-xl md:text-3xl font-bold hover:underline underline-offset-6 decoration-slate-400 dark:decoration-border-primary"
+          aria-label={t("contact.email.ariaLabel").replace("{email}", CONTACT_EMAIL)}
+          data-contact-email
+        >
+          {CONTACT_EMAIL}
+        </a>
 
-      <div class="relative">
-        <button
-          type="button"
-          class="p-2 rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-300/70 transition active:scale-95 cursor-pointer dark:text-text-muted dark:hover:text-text-secondary dark:hover:bg-bg-tertiary/70"
-          aria-label={t("contact.copyEmail.ariaLabel")}
-          data-copy-email
-        >
-          <Copy class="w-5 h-5" aria-hidden="true" />
-        </button>
-        <div
-          class="absolute left-1/2 -translate-x-5/7 md:-translate-x-1/2 -top-7 md:-top-9 px-2 py-1 rounded-md bg-slate-800 text-white text-xs pointer-events-none translate-y-1 transition opacity-0 dark:bg-slate-50 dark:text-slate-900"
-          role="status"
-          aria-live="polite"
-          data-copy-tooltip
-        >
-          {t("contact.copied")}
+        <div class="absolute -right-9 md:-right-10">
+          <button
+            type="button"
+            class="p-2 rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-300/70 transition active:scale-95 cursor-pointer dark:text-text-muted dark:hover:text-text-secondary dark:hover:bg-bg-tertiary/70"
+            aria-label={t("contact.copyEmail.ariaLabel")}
+            data-copy-email
+          >
+            <Copy class="w-5 h-5" aria-hidden="true" />
+          </button>
+          <div
+            class="absolute left-1/2 -translate-x-5/7 md:-translate-x-1/2 -top-7 md:-top-9 px-2 py-1 rounded-md bg-slate-800 text-white text-xs pointer-events-none translate-y-1 transition opacity-0 dark:bg-slate-50 dark:text-slate-900"
+            role="status"
+            aria-live="polite"
+            data-copy-tooltip
+          >
+            {t("contact.copied")}
+          </div>
         </div>
       </div>
     </div>
