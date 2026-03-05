@@ -20,7 +20,7 @@ const currentLanguage = Astro.currentLocale || "en";
     {
       Object.entries(languages).map(([lang, label]) => (
         <a
-          href={`/${lang}`}
+          href={`/${lang === "en" ? "" : lang}`}
           class:list={[
             "flex items-center justify-between gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-text-primary transition-colors",
             {

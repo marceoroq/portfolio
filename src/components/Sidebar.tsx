@@ -49,24 +49,18 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
               <h2 className="uppercase">{t("sidebar.language")}</h2>
             </div>
             <div className="flex w-full justify-center items-center gap-12 text-2xl">
-              {Object.entries(languages).map(([language, label]) =>
-                language === currentLanguage ? (
+              {Object.entries(languages).map(([lang, label]) =>
+                lang === currentLanguage ? (
                   <div className="relative flex items-center gap-2 font-bold">
                     <Check className="absolute size-5 -left-6" />
                     <span>{label}</span>
                   </div>
                 ) : (
-                  <a href={`/${language}`} className="hover:text-blue-500">
+                  <a href={`/${lang === "en" ? "" : lang}`} className="hover:text-blue-500">
                     <span>{label}</span>
                   </a>
                 ),
               )}
-              {/* <div className="relative flex items-center gap-2 font-bold">
-                <Check className="absolute size-5 -left-6" />
-                <span>English</span>
-              </div> */}
-
-              {/* <span>Spanish</span> */}
             </div>
           </div>
         </div>
