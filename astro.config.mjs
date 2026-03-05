@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, envField } from "astro/config";
+import vercel from "@astrojs/vercel/serverless";
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -10,6 +11,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  output: "server",
+  adapter: vercel({
+    edgeMiddleware: true,
+  }),
   integrations: [
     preact({
       compat: true,

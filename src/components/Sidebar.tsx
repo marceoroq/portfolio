@@ -15,6 +15,10 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
     setIsOpen(!isOpen);
   };
 
+  const handleLanguageChange = (lang: string) => {
+    document.cookie = `user-locale=${lang}; path=/; max-age=31536000`;
+  };
+
   return (
     <>
       <Menu className="md:hidden size-10 text-2xl cursor-pointer text-text-primary" onClick={toggleSidebar} />
@@ -56,7 +60,11 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
                     <span>{label}</span>
                   </div>
                 ) : (
-                  <a href={`/${lang === "en" ? "" : lang}`} className="hover:text-blue-500">
+                  <a
+                    href={`/${lang === "en" ? "" : lang}`}
+                    className="hover:text-blue-500"
+                    onClick={() => handleLanguageChange(lang)}
+                  >
                     <span>{label}</span>
                   </a>
                 ),

@@ -21,6 +21,7 @@ const currentLanguage = Astro.currentLocale || "en";
       Object.entries(languages).map(([lang, label]) => (
         <a
           href={`/${lang === "en" ? "" : lang}`}
+          data-lang-link={lang}
           class:list={[
             "flex items-center justify-between gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-text-primary transition-colors",
             {
@@ -46,6 +47,7 @@ const currentLanguage = Astro.currentLocale || "en";
 <script>
   function setupLanguageMenu() {
     const menus = document.querySelectorAll<HTMLDetailsElement>("[data-language-menu]");
+    const langLinks = document.querySelectorAll<HTMLAnchorElement>("[data-lang-link]");
 
     const closeMenus = () => menus.forEach((m) => m.removeAttribute("open"));
 
@@ -58,6 +60,15 @@ const currentLanguage = Astro.currentLocale || "en";
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenus();
+    });
+
+    langLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        const selectedLang = link.getAttribute("data-lang-link");
+        if (selectedLang) {
+          document.cookie = `user-locale=${selectedLang}; path=/; max-age=31536000`;
+        }
+      });
     });
   }
 
