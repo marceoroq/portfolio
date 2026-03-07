@@ -83,24 +83,22 @@ const t = useTranslations(currentLanguage);
 </section>
 
 <script is:inline>
-  document.addEventListener("astro:page-load", () => {
-    const copyButton = document.querySelector("[data-copy-email]");
-    const tooltip = document.querySelector("[data-copy-tooltip]");
+  const copyButton = document.querySelector("[data-copy-email]");
+  const tooltip = document.querySelector("[data-copy-tooltip]");
 
-    const contactEmail = document.querySelector("[data-contact-email]");
-    const email = contactEmail.textContent;
+  const contactEmail = document.querySelector("[data-contact-email]");
+  const email = contactEmail.textContent;
 
-    copyButton.addEventListener("click", () => {
-      navigator.clipboard.writeText(email);
+  copyButton.addEventListener("click", () => {
+    navigator.clipboard.writeText(email);
 
-      tooltip.classList.remove("opacity-0", "pointer-events-none", "translate-y-1");
+    tooltip.classList.remove("opacity-0", "pointer-events-none", "translate-y-1");
 
-      tooltip.classList.add("opacity-100", "translate-y-0");
+    tooltip.classList.add("opacity-100", "translate-y-0");
 
-      window.setTimeout(() => {
-        tooltip.classList.remove("opacity-100", "translate-y-0");
-        tooltip.classList.add("opacity-0", "pointer-events-none", "translate-y-1");
-      }, 1400);
-    });
+    window.setTimeout(() => {
+      tooltip.classList.remove("opacity-100", "translate-y-0");
+      tooltip.classList.add("opacity-0", "pointer-events-none", "translate-y-1");
+    }, 1400);
   });
 </script>

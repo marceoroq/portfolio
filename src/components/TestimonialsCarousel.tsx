@@ -134,7 +134,7 @@ export default function TestimonialCarousel({ testimonials, currentLanguage }: C
             onClick={() => scrollTo(index)}
             type="button"
             aria-label={t("testimonials.carousel.goto").replace("{n}", String(index + 1))}
-            className={`h-3 w-3 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+            className={`h-3 w-3 cursor-pointer rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
               index === selectedIndex
                 ? "bg-slate-500 scale-125 dark:bg-slate-300"
                 : "bg-slate-300/70 hover:bg-slate-400 dark:bg-slate-700/70 dark:hover:bg-slate-600"

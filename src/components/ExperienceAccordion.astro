@@ -107,22 +107,20 @@ const { experience } = Astro.props as { experience: CompanyExperience };
 </div>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const buttons = document.querySelectorAll("button.header-summary");
+  const buttons = document.querySelectorAll("button.header-summary");
 
-    buttons.forEach((button) => {
-      // Note: Explicit listener cleanup (removeEventListener) is skipped here intentionally.
-      // Since we're attaching anonymous functions to DOM elements that get entirely wiped
-      // and recreated during Astro's page swaps, garbage collection handles this automatically
-      // without risking memory leaks.
-      button.addEventListener("click", (e) => {
-        const target = e.currentTarget as HTMLElement;
-        const el = target.closest(".group") as HTMLElement | null;
+  buttons.forEach((button) => {
+    // Note: Explicit listener cleanup (removeEventListener) is skipped here intentionally.
+    // Since we're attaching anonymous functions to DOM elements that get entirely wiped
+    // and recreated during Astro's page swaps, garbage collection handles this automatically
+    // without risking memory leaks.
+    button.addEventListener("click", (e) => {
+      const target = e.currentTarget as HTMLElement;
+      const el = target.closest(".group") as HTMLElement | null;
 
-        if (!el) return;
+      if (!el) return;
 
-        el.dataset.state = el.dataset.state === "closed" ? "open" : "closed";
-      });
+      el.dataset.state = el.dataset.state === "closed" ? "open" : "closed";
     });
   });
 </script>
