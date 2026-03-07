@@ -29,8 +29,6 @@ const t = useTranslations(currentLanguage as "en" | "es");
       name="keywords"
       content="Marcelo Oroquieta, Portfolio, Web Developer, Frontend Developer, JavaScript, React, Next.js, TailwindCSS, Supabase, Fullstack Developer"
     />
-    <ClientRouter />
-    <Analytics />
     <script is:inline>
       const setTheme = () => {
         const theme = (() => {
@@ -52,8 +50,14 @@ const t = useTranslations(currentLanguage as "en" | "es");
 
       setTheme();
 
+      document.addEventListener("astro:before-swap", (ev) => {
+        document.documentElement.lang = ev.newDocument.documentElement.lang;
+      });
+
       document.addEventListener("astro:after-swap", setTheme);
     </script>
+    <ClientRouter />
+    <Analytics />
   </head>
   <body>
     <slot />
