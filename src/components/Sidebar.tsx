@@ -1,5 +1,7 @@
 import { X, Menu, Check, Github, Linkedin, Languages } from "lucide-preact";
+import { navigate } from "astro:transitions/client";
 import { useState } from "preact/hooks";
+import type { MouseEvent } from "preact/compat";
 
 import { navItems } from "src/lib/constants";
 import { languages } from "src/lib/i18n/ui";
@@ -17,6 +19,14 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
 
   const handleLanguageChange = (lang: string) => {
     document.cookie = `user-locale=${lang}; path=/; max-age=31536000`;
+  };
+
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>, lang: string) => {
+    e.preventDefault();
+    handleLanguageChange(lang);
+
+    const targetUrl = lang === "en" ? "/" : `/${lang}`;
+    navigate(targetUrl);
   };
 
   return (
@@ -63,7 +73,7 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
                   <a
                     href={`/${lang === "en" ? "" : lang}`}
                     className="hover:text-blue-500"
-                    onClick={() => handleLanguageChange(lang)}
+                    onClick={(e) => handleClick(e, lang)}
                   >
                     <span>{label}</span>
                   </a>
