@@ -31,7 +31,7 @@ export function ChatInput({ onSend, disabled, placeholder }: Props) {
           value={text}
           onInput={(e) => setText(e.currentTarget.value)}
           placeholder={placeholder}
-          className="w-full bg-bg-tertiary/50 text-text-primary placeholder:text-text-muted rounded-full pl-4 pr-12 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-500/50 border border-slate-500/20"
+          className="w-full bg-bg-tertiary/50 text-text-primary placeholder:text-text-muted rounded-full pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-slate-500/50 border border-slate-500/20"
         />
         <button
           type="submit"
