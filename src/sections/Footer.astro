@@ -1,5 +1,5 @@
 ---
-import { MapPin } from "@lucide/astro";
+import { MapPin, ChevronsUp } from "@lucide/astro";
 import { useTranslations } from "src/lib/i18n/utils";
 import type { Language } from "src/types";
 
@@ -43,10 +43,12 @@ const t = useTranslations(currentLanguage);
             <li>
               <a
                 href="#hero"
-                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm block dark:text-text-secondary"
+                class="text-gray-700 hover:text-blue-500 hover:font-medium transition-colors font-mono text-sm flex items-center gap-1 dark:text-text-secondary"
                 aria-label={t("footer.nav.hero.ariaLabel")}
               >
+                <ChevronsUp class="size-4 hidden md:inline" />
                 {t("footer.nav.hero")}
+                <ChevronsUp class="size-4 md:hidden" />
               </a>
             </li>
             <li>
