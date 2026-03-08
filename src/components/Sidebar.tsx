@@ -1,5 +1,7 @@
 import { X, Menu, Check, Github, Linkedin, Languages } from "lucide-preact";
+import { navigate } from "astro:transitions/client";
 import { useState } from "preact/hooks";
+import type { MouseEvent } from "preact/compat";
 
 import { navItems } from "src/lib/constants";
 import { languages } from "src/lib/i18n/ui";
@@ -13,6 +15,18 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLanguageChange = (lang: string) => {
+    document.cookie = `user-locale=${lang}; path=/; max-age=31536000`;
+  };
+
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>, lang: string) => {
+    e.preventDefault();
+    handleLanguageChange(lang);
+
+    const targetUrl = lang === "en" ? "/" : `/${lang}`;
+    navigate(targetUrl);
   };
 
   return (
@@ -49,24 +63,22 @@ export const Sidebar = ({ currentLanguage }: { currentLanguage: Language }) => {
               <h2 className="uppercase">{t("sidebar.language")}</h2>
             </div>
             <div className="flex w-full justify-center items-center gap-12 text-2xl">
-              {Object.entries(languages).map(([language, label]) =>
-                language === currentLanguage ? (
+              {Object.entries(languages).map(([lang, label]) =>
+                lang === currentLanguage ? (
                   <div className="relative flex items-center gap-2 font-bold">
                     <Check className="absolute size-5 -left-6" />
                     <span>{label}</span>
                   </div>
                 ) : (
-                  <a href={`/${language}`} className="hover:text-blue-500">
+                  <a
+                    href={`/${lang === "en" ? "" : lang}`}
+                    className="hover:text-blue-500"
+                    onClick={(e) => handleClick(e, lang)}
+                  >
                     <span>{label}</span>
                   </a>
                 ),
               )}
-              {/* <div className="relative flex items-center gap-2 font-bold">
-                <Check className="absolute size-5 -left-6" />
-                <span>English</span>
-              </div> */}
-
-              {/* <span>Spanish</span> */}
             </div>
           </div>
         </div>

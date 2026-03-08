@@ -5,7 +5,6 @@ import "@fontsource/geist-sans/700.css";
 import "@fontsource-variable/geist-mono";
 import "../styles/global.css";
 
-import ClientRouter from "astro/components/ClientRouter.astro";
 import Analytics from "@vercel/analytics/astro";
 
 import { useTranslations } from "src/lib/i18n/utils";
@@ -32,7 +31,6 @@ const t = useTranslations(currentLanguage);
       name="keywords"
       content="Marcelo Oroquieta, Portfolio, Web Developer, Frontend Developer, JavaScript, React, Next.js, TailwindCSS, Supabase, Fullstack Developer"
     />
-    <ClientRouter />
     <Analytics />
     <script is:inline>
       const setTheme = () => {

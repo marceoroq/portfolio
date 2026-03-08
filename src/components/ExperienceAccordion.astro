@@ -51,7 +51,7 @@ const { experience } = Astro.props as { experience: CompanyExperience };
                         <p class="sm:truncate leading-5 sm:leading-normal text-xl font-semibold text-slate-500 group-hover:text-black transition-colors duration-300 group-data-[state=open]:text-black dark:text-text-muted dark:group-hover:text-text-primary dark:group-data-[state=open]:text-text-primary">
                           {role.title}
                         </p>
-                        <p class="shrink-0 whitespace-nowrap mt-1 ml-0.25 sm:mt-0 text-xs text-slate-400 dark:text-text-muted">
+                        <p class="shrink-0 mt-1 ml-0.25 sm:mt-0 text-xs text-slate-400 dark:text-text-muted">
                           {role.employment ? `${role.employment} · ` : ""}
                           {role.period}
                         </p>
@@ -107,22 +107,20 @@ const { experience } = Astro.props as { experience: CompanyExperience };
 </div>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const buttons = document.querySelectorAll("button.header-summary");
+  const buttons = document.querySelectorAll("button.header-summary");
 
-    buttons.forEach((button) => {
-      // Note: Explicit listener cleanup (removeEventListener) is skipped here intentionally.
-      // Since we're attaching anonymous functions to DOM elements that get entirely wiped
-      // and recreated during Astro's page swaps, garbage collection handles this automatically
-      // without risking memory leaks.
-      button.addEventListener("click", (e) => {
-        const target = e.currentTarget as HTMLElement;
-        const el = target.closest(".group") as HTMLElement | null;
+  buttons.forEach((button) => {
+    // Note: Explicit listener cleanup (removeEventListener) is skipped here intentionally.
+    // Since we're attaching anonymous functions to DOM elements that get entirely wiped
+    // and recreated during Astro's page swaps, garbage collection handles this automatically
+    // without risking memory leaks.
+    button.addEventListener("click", (e) => {
+      const target = e.currentTarget as HTMLElement;
+      const el = target.closest(".group") as HTMLElement | null;
 
-        if (!el) return;
+      if (!el) return;
 
-        el.dataset.state = el.dataset.state === "closed" ? "open" : "closed";
-      });
+      el.dataset.state = el.dataset.state === "closed" ? "open" : "closed";
     });
   });
 </script>

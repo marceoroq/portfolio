@@ -183,7 +183,7 @@ export const ui: Record<Language, Record<string, string>> = {
     "sidebar.language": "Idioma",
     "hero.position": "Desarrollador Frontend Web",
     "hero.description":
-      "Desarrollando aplicaciones web elegantes y de alto rendimiento con Next.js, React y Astro. Ampliando mis habilidades hacia la arquitectura fullstack y explorando con entusiasmo el campo de la IA",
+      "Desarrollando aplicaciones web elegantes y de alto rendimiento con Next.js, React y Astro. Ampliando mis habilidades hacia la arquitectura fullstack y explorando los alcances campo de la IA",
     "hero.available": "Disponible para Trabajar",
     "hero.button": "Contactame",
     "hero.image.alt": "foto de Marcelo Oroquieta",
