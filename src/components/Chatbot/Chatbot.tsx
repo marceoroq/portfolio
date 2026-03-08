@@ -33,7 +33,7 @@ export default function Chatbot({ currentLanguage }: { currentLanguage: Language
         <dialog
           ref={chatWindowRef}
           // aria-modal="true"
-          className="fixed z-50 inset-0 md:inset-auto md:bottom-10 md:right-10 md:w-96 md:h-[500px] md:rounded-2xl flex flex-col bg-bg-primary/95 backdrop-blur-xl border-2 border-slate-500/50 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-4"
+          className="fixed w-full h-full z-50 inset-0 md:inset-auto md:bottom-10 md:right-10 md:w-96 md:h-[500px] md:rounded-2xl flex flex-col bg-bg-primary/95 backdrop-blur-xl border-2 border-slate-500/50 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-4"
         >
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-slate-500/30 bg-bg-secondary/50">
