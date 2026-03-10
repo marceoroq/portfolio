@@ -18,5 +18,5 @@ export const getUserFriendlyErrorMessage = (error: Error | any, lang: Language):
   if (msg.includes("QUOTA_EXCEEDED")) return t(ERROR_MESSAGES.QUOTA_EXCEEDED);
   if (msg.includes("TIMEOUT_EMPTY_RESPONSE")) return t(ERROR_MESSAGES.TIMEOUT);
 
-  return ERROR_MESSAGES.DEFAULT;
+  return t(ERROR_MESSAGES.DEFAULT);
 };
