@@ -16,7 +16,7 @@ import { useFocusTrap } from "src/lib/hooks/useFocusTrap";
 export default function Chatbot({ currentLanguage }: { currentLanguage: Language }) {
   const t = useTranslations(currentLanguage);
 
-  const { isOpen, messages, isTyping, toggle, sendMessage } = useChat(t("chatbot.demo"));
+  const { isOpen, messages, isTyping, toggle, sendMessage } = useChat(currentLanguage);
 
   const chatWindowRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -52,7 +52,12 @@ export default function Chatbot({ currentLanguage }: { currentLanguage: Language
             texts={{ trigger: t("chatbot.trigger"), waiting: t("chatbot.waiting") }}
           />
 
-          <ChatInput onSend={sendMessage} disabled={isTyping} placeholder={t("chatbot.placeholder")} />
+          <ChatInput
+            onSend={sendMessage}
+            disabled={isTyping}
+            placeholder={t("chatbot.placeholder")}
+            maxInputMessage={t("chatbot.maxInputAchieved")}
+          />
         </dialog>
       )}
     </>

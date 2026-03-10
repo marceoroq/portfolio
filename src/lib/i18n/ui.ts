@@ -169,8 +169,17 @@ export const ui: Record<Language, Record<string, string>> = {
     "chatbot.send": "Send",
     "chatbot.close": "Close chat",
     "chatbot.waiting": "Thinking...",
-    "chatbot.demo":
-      "Thanks for your message! This is a demo response. The AI integration is coming soon :)",
+    "chatbot.demo": "Thanks for your message! This is a demo response. The AI integration is coming soon :)",
+    "chatbot.maxInputAchieved": "Maximum characters reached.",
+    "chatbot.error.overloaded":
+      "Oops! I'm currently handling a lot of inquiries for Marcelo. Give me a few minutes and try again! 🙏",
+    "chatbot.error.notSupported": "The AI model we are currently using is not supported!",
+    "chatbot.error.timeout":
+      "Google took too long to think, so I had to cut the connection. Can we chat again in a few minutes?",
+    "chatbot.error.default":
+      "Ugh, I just had a short circuit in my thoughts. Would you like to try again in a few minutes?",
+    "chatbot.error.quoteExceeded":
+      "I've answered too many questions about Marcelo today 😮‍💨! I'll be available again tomorrow for new inquiries about him. Otherwise, you can contact him directly at his email!",
   },
   es: {
     "head.title": "Marcelo Oroquieta - Portafolio",
@@ -336,5 +345,15 @@ export const ui: Record<Language, Record<string, string>> = {
     "chatbot.waiting": "Pensando...",
     "chatbot.demo":
       "¡Gracias por tu mensaje! Esta es una respuesta de demostración. La integración con la IA está en camino :)",
+    "chatbot.maxInputAchieved": "Maximo de caracteres alcanzado.",
+    "chatbot.error.overloaded":
+      "¡Uy! Actualmente estoy recibiendo muchas consultas por Marcelo. Dame unos minutitos y probá de nuevo. 🙏",
+    "chatbot.error.notSupported": "¡El modelo de IA que estamos usando actualmente no está soportado!",
+    "chatbot.error.timeout":
+      "Google se quedó pensando demasiado tiempo y corté la conexión. ¿Podemos charlar en unos minutos?",
+    "chatbot.error.default":
+      "Uf, tuve un cortocircuito en mis pensamientos. ¿Quieres intentar en unos minutos nuevamente?",
+    "chatbot.error.quoteExceeded":
+      "Hoy he respondido demasiadas preguntas sobre Marcelo 😮‍💨! Mañana estare nuevamente disponible para nuevas consultas sobre él. Sino puedes directamente contactarlo a su email!",
   },
 } as const;

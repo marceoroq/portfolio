@@ -1,3 +1,4 @@
+import type { Language } from "src/types";
 import { ui, defaultLang } from "./ui";
 
 export function getLangFromUrl(url: URL) {

@@ -26,15 +26,18 @@ export function MessageList({ messages, isTyping, texts }: Props) {
 
   return (
     <div className="flex-1 overflow-y-auto p-4 gap-2 flex flex-col scrollbar-thin">
-      {messages.map((msg, idx) => (
-        <div key={idx} className={`flex font-mono ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-          <div
-            className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.role === "user" ? "bg-slate-600 dark:bg-slate-200 text-bg-primary rounded-br-none" : "bg-gray-100 dark:bg-slate-900 text-text-primary rounded-bl-none"}`}
-          >
-            {msg.text}
-          </div>
-        </div>
-      ))}
+      {messages.map(
+        (msg, idx) =>
+          msg.text.length > 0 && (
+            <div key={idx} className={`flex font-mono ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+              <div
+                className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.role === "user" ? "bg-slate-600 dark:bg-slate-200 text-bg-primary rounded-br-none" : "bg-gray-100 dark:bg-slate-900 text-text-primary rounded-bl-none"}`}
+              >
+                {msg.text}
+              </div>
+            </div>
+          ),
+      )}
 
       {isTyping && (
         <div className="flex justify-start text-text-primary items-center gap-2">

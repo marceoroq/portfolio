@@ -5,9 +5,12 @@ interface Props {
   onSend: (text: string) => void;
   disabled: boolean;
   placeholder: string;
+  maxInputMessage: string;
 }
 
-export function ChatInput({ onSend, disabled, placeholder }: Props) {
+const MAX_INPUT_LENGTH = 150;
+
+export function ChatInput({ onSend, disabled, placeholder, maxInputMessage }: Props) {
   const [text, setText] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -22,6 +25,8 @@ export function ChatInput({ onSend, disabled, placeholder }: Props) {
     setText("");
   };
 
+  const isMaxInputAchieved = text.length >= MAX_INPUT_LENGTH;
+
   return (
     <form onSubmit={handleSubmit} className="p-4 border-t border-slate-500/30 bg-bg-secondary/30">
       <div className="relative font-mono flex items-center">
@@ -29,6 +34,7 @@ export function ChatInput({ onSend, disabled, placeholder }: Props) {
           ref={inputRef}
           type="text"
           value={text}
+          maxLength={MAX_INPUT_LENGTH}
           onInput={(e) => setText(e.currentTarget.value)}
           placeholder={placeholder}
           className="w-full bg-bg-tertiary/50 text-text-primary placeholder:text-text-muted rounded-full pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-slate-500/50 border border-slate-500/20"
@@ -41,6 +47,11 @@ export function ChatInput({ onSend, disabled, placeholder }: Props) {
           <Send className="w-4 h-4" />
         </button>
       </div>
+      {isMaxInputAchieved && (
+        <p className="text-red-400 text-xs mt-2 text-right">
+          {maxInputMessage} ({MAX_INPUT_LENGTH})
+        </p>
+      )}
     </form>
   );
 }
