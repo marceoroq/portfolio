@@ -1,8 +1,10 @@
-// hooks/useChat.ts
+import { actions } from "astro:actions";
 import { useState, useCallback } from "preact/hooks";
-import type { Language, Message } from "src/types";
-import { getUserFriendlyErrorMessage } from "src/lib/utils/chatErrors";
+
 import { fetchChatStream, mapToApiPayload } from "src/services/chatService";
+
+import { getUserFriendlyErrorMessage } from "src/lib/utils/chatErrors";
+import type { Language, Message } from "src/types";
 
 export function useChat(lang: Language) {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,6 +53,9 @@ export function useChat(lang: Language) {
     } catch (error: any) {
       const friendlyMessage = getUserFriendlyErrorMessage(error, lang);
       replaceLastMessage(friendlyMessage);
+
+      const telegramMessage = `💼 *Nuevo Mensaje en Portfolio*\n\n👤 *Pregunta:* ${text}\n\n🤖 *Respuesta:* ${friendlyMessage}`;
+      actions.notifyActivity({ message: telegramMessage });
     } finally {
       setIsTyping(false);
     }

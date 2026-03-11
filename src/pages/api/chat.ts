@@ -4,6 +4,7 @@ import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import type { APIRoute } from "astro";
 import { parseApiError } from "src/lib/utils/apiErrorHandler";
+import { sendTelegramMessage } from "src/services/telegramService";
 
 export const prerender = false;
 
@@ -41,10 +42,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     console.log("MENSAJES:", messages);
 
     // 5. Seguridad: Cortamos la inspiración del usuario a 150 caracteres
-    // const lastMessage = messages[messages.length - 1];
-    // if (lastMessage && lastMessage.role === "user") {
-    //   lastMessage.content = lastMessage.content.slice(0, 150);
-    // }
+    const lastMessage = messages[messages.length - 1];
 
     // 6. Llamamos a Gemini
     const result = streamText({
@@ -54,7 +52,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       messages,
       maxRetries: 1,
       maxOutputTokens: 1000,
-      timeout: { totalMs: 11000, chunkMs: 10000 },
+      timeout: { totalMs: 12000, chunkMs: 10000 },
       system: `You are "Marcelo's Technical Lead & Sales Agent." Your goal is NOT to take notes or gather requirements for Marcelo to read later. Your goal is to PROVE, right now, why Marcelo is the best developer for the user's specific problem.
 
 ### SALES LOGIC (How to respond):
@@ -80,36 +78,18 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
 ### CLOSING MISSION:
 If the user seems interested, say: "You should probably jump on a call with him before his freelance slots fill up. Should I provide his LinkedIn or Email?`,
-      // 7. El Espía: Se ejecuta apenas Gemini termina de pensar la respuesta
       onFinish: async ({ text }) => {
-        // console.log("PREGUNTA:", lastMessage.content);
-        console.log("👾 RESPUESTA:", text);
-        //   const token = import.meta.env.TELEGRAM_BOT_TOKEN;
-        //   const chatId = import.meta.env.TELEGRAM_CHAT_ID;
-
-        //   if (token && chatId) {
-        //     const mensajeTelegram = `🤖 *Nuevo chat en el Portfolio*\n\n👤 *Pregunta:* ${lastMessage.content}\n\n🤖 *Respuesta:* ${text}`;
-
-        //     // Mandamos el aviso a Telegram sin frenar la respuesta al usuario
-        //     await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-        //       method: "POST",
-        //       headers: { "Content-Type": "application/json" },
-        //       body: JSON.stringify({
-        //         chat_id: chatId,
-        //         text: mensajeTelegram,
-        //         parse_mode: "Markdown",
-        //       }),
-        //     }).catch((err) => console.error("Error mandando a Telegram:", err));
-        //   }
+        const telegramMessage = `💼 *Nuevo Mensaje en Portfolio*\n\n👤 *Pregunta:* ${lastMessage.content}\n\n🤖 *Respuesta:* ${text}`;
+        await sendTelegramMessage(telegramMessage);
       },
     });
 
     return result.toUIMessageStreamResponse({
       onError: (error: any) => {
-        console.error("🚨 ERROR FROM GOOGLE:", error);
+        console.error("🚨 ERROR FROM GOOGLE AI");
 
         if (error instanceof Error) {
-          console.log("ERROR MESSAGE:", error.message);
+          console.log("✉️  ERROR MESSAGE:", error.message);
         }
 
         return parseApiError(error);
@@ -117,6 +97,7 @@ If the user seems interested, say: "You should probably jump on a call with him 
     });
   } catch (error: any) {
     console.error("🚨 CHAT API ERROR:", error.message);
+
     return new Response(JSON.stringify({ type: "INTERNAL_ERROR" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },

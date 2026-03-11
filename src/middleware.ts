@@ -8,7 +8,12 @@ const COOKIE_NAME = "user-locale";
 export const onRequest = defineMiddleware((context, next) => {
   const { url, preferredLocale, redirect, cookies } = context;
 
-  if (url.pathname.startsWith("/_astro") || url.pathname.startsWith("/api/") || /\.[a-zA-Z0-9]+$/.test(url.pathname)) {
+  if (
+    url.pathname.startsWith("/api/") ||
+    url.pathname.startsWith("/_astro") ||
+    url.pathname.startsWith("/_actions") ||
+    /\.[a-zA-Z0-9]+$/.test(url.pathname)
+  ) {
     return next();
   }
 
