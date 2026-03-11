@@ -31,7 +31,7 @@ export function MessageList({ messages, isTyping, texts }: Props) {
           msg.text.length > 0 && (
             <div key={idx} className={`flex font-mono ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
               <div
-                className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.role === "user" ? "bg-slate-600 dark:bg-slate-200 text-bg-primary rounded-br-none" : "bg-gray-100 dark:bg-slate-900 text-text-primary rounded-bl-none"}`}
+                className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.role === "user" ? "bg-slate-600 dark:bg-slate-200 text-bg-primary rounded-br-none dark:font-medium leading-5" : "bg-gray-100 dark:bg-slate-900 text-text-primary rounded-bl-none"}`}
               >
                 {msg.text}
               </div>
