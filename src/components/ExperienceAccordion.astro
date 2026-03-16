@@ -4,7 +4,7 @@ import { Code, ChevronDown } from "@lucide/astro";
 
 import type { CompanyExperience } from "src/types";
 
-const { experience } = Astro.props as { experience: CompanyExperience };
+const { experience, connectorLine = true } = Astro.props as { experience: CompanyExperience; connectorLine: boolean };
 ---
 
 <div class="flex flex-col gap-6 w-full font-mono">
@@ -35,7 +35,12 @@ const { experience } = Astro.props as { experience: CompanyExperience };
               <div class="grid size-9 place-items-center rounded-sm border-2 border-slate-200 bg-white text-slate-700 dark:border-border-primary dark:bg-bg-secondary dark:text-text-secondary">
                 <PositionIcon class="size-4 text-slate-400 stroke-3 dark:text-text-muted" />
               </div>
-              <div class:list={["w-px flex-1 bg-slate-200 dark:bg-border-primary", isLast && "opacity-0"]} />
+              <div
+                class:list={[
+                  "w-px flex-1 bg-slate-200 dark:bg-border-primary",
+                  (isLast || !connectorLine) && "opacity-0",
+                ]}
+              />
             </div>
 
             {/* --- MAIN CONTAINER --- */}
@@ -51,7 +56,7 @@ const { experience } = Astro.props as { experience: CompanyExperience };
                         <p class="sm:truncate leading-5 sm:leading-normal text-xl font-semibold text-slate-500 group-hover:text-black transition-colors duration-300 group-data-[state=open]:text-black dark:text-text-muted dark:group-hover:text-text-primary dark:group-data-[state=open]:text-text-primary">
                           {role.title}
                         </p>
-                        <p class="shrink-0 mt-1 ml-0.25 sm:mt-0 text-xs text-slate-400 dark:text-text-muted">
+                        <p class="shrink-0 mt-1 ml-px sm:mt-0 text-xs text-slate-400 dark:text-text-muted">
                           {role.employment ? `${role.employment} · ` : ""}
                           {role.period}
                         </p>
